@@ -3,10 +3,11 @@ package com.algo.list;
 public class Node<E> {
 
     private E value;
-    private Node<E> next;
+    private Node<E> nextNode;
 
     public Node(E value) {
         this.value = value;
+        this.nextNode = null;
     }
 
     public E getValue() {
@@ -17,11 +18,11 @@ public class Node<E> {
         this.value = value;
     }
 
-    public Node<E> getNext() {
-        return next;
+    public Node<E> getNextNode() {
+        return nextNode;
     }
 
-    public void setNext(Node<E> next) {
-        this.next = next;
+    public void setNextNode(Node<E> next) {
+        this.nextNode = next;
     }
 }
