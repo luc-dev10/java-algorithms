@@ -9,28 +9,27 @@ public class ListApp {
         integerLinkedList.push(2);
         integerLinkedList.push(3);
 
-        //        printValuesFromList(integerLinkedList);
         //_____________________________
 
         // test pop
         integerLinkedList.pop(1);
-        //        printValuesFromList(integerLinkedList);
 
         //_____________________________
 
         integerLinkedList.push(4);
         integerLinkedList.push(5);
-        //        printValuesFromList(integerLinkedList);
 
         //_____________________________
 
-        // test get method
-        System.out.println(integerLinkedList.get(0));
+        // test set and get on index
+        boolean isValueSetOnIndex = integerLinkedList.set(1, 10);
+        System.out.printf("Is Value set: %b\nNew Value: %d\n", isValueSetOnIndex, integerLinkedList.get(1));
 
         //_____________________________
 
-        // test set on index
-        integerLinkedList.set(1, 10);
+        // test insert
+        boolean isNodeInserted = integerLinkedList.insertOnIndex(2, 40);
+        System.out.printf("Is Node inserted: %b\n", isNodeInserted);
         printValuesFromList(integerLinkedList);
 
     }
