@@ -9,20 +9,29 @@ public class ListApp {
         integerLinkedList.push(2);
         integerLinkedList.push(3);
 
-        printValuesFromList(integerLinkedList);
+        //        printValuesFromList(integerLinkedList);
         //_____________________________
 
         // test pop
         integerLinkedList.pop(1);
-        printValuesFromList(integerLinkedList);
+        //        printValuesFromList(integerLinkedList);
 
         //_____________________________
 
         integerLinkedList.push(4);
         integerLinkedList.push(5);
-        printValuesFromList(integerLinkedList);
+        //        printValuesFromList(integerLinkedList);
 
+        //_____________________________
+
+        // test get method
         System.out.println(integerLinkedList.get(0));
+
+        //_____________________________
+
+        // test set on index
+        integerLinkedList.set(1, 10);
+        printValuesFromList(integerLinkedList);
 
     }
 

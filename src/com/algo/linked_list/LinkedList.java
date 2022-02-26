@@ -47,12 +47,28 @@ public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
         for (E value : this) {
             if (counter == index)
                 return value;
-            
+
             counter++;
         }
 
         // value not found
         return null;
+    }
+
+    // set on index
+    public void set(int index, E newValue) {
+        Node<E> currentNode = this.head;
+
+        int counter = 0;
+        while (currentNode != null) {
+            if (counter == index) {
+                currentNode.setValue(newValue);
+                break;
+            }
+            counter++;
+            currentNode = currentNode.getNextNode();
+        }
+
     }
 
     @Override
