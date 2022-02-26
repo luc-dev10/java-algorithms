@@ -15,11 +15,11 @@ public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
     }
 
     // iterator method
-    public Node<E> getHead() {
+    protected Node<E> getHead() {
         return this.head;
     }
 
-    public Node<E> getTail() {
+    protected Node<E> getTail() {
         return this.tail;
     }
 
@@ -35,6 +35,33 @@ public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
             this.tail = node;
         }
         size++;
+    }
+
+    @Override
+    public void pop() {
+
+        Node<E> currentNode = this.head;
+        Node<E> previousNode = null;
+
+        while (currentNode != null) {
+
+            if (currentNode == tail) {
+                if (currentNode == head) {
+                    head = null;
+                    tail = null;
+                } else {
+                    Node<E> temp = currentNode.getNextNode();
+                    previousNode.setNextNode(temp);
+                    tail = previousNode;
+                }
+                size--;
+                break;
+            }
+
+            previousNode = currentNode;
+            currentNode = currentNode.getNextNode();
+        }
+
     }
 
     // get by index
@@ -94,38 +121,6 @@ public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
         }
 
         return false;
-    }
-
-    @Override
-    public void pop(E value) {
-
-        Node<E> currentNode = this.head;
-        Node<E> previousNode = this.head;
-
-        while (currentNode != null) {
-
-            E currentValue = currentNode.getValue();
-            if (currentValue.equals(value)) {
-
-                Node<E> temp = currentNode.getNextNode();
-
-                previousNode.setNextNode(temp);
-
-                // set new head
-                if (currentNode == head)
-                    head = temp;
-
-                // set previous node as tail
-                if (currentNode == tail)
-                    tail = previousNode;
-
-                size--;
-                break;
-            }
-            previousNode = currentNode;
-            currentNode = currentNode.getNextNode();
-
-        }
     }
 
     @Override

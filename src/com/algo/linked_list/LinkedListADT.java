@@ -4,7 +4,7 @@ public interface LinkedListADT<E> {
 
     void push(E value);
 
-    void pop(E value);
+    void pop();
 
     int getSize();
 
