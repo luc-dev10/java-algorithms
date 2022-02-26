@@ -22,6 +22,8 @@ public class ListApp {
         integerLinkedList.push(5);
         printValuesFromList(integerLinkedList);
 
+        System.out.println(integerLinkedList.get(0));
+
     }
 
     // method to print values from list

@@ -37,6 +37,24 @@ public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
         size++;
     }
 
+    // get by index
+    public E get(int index) {
+
+        if (index >= size)
+            return null;
+
+        int counter = 0;
+        for (E value : this) {
+            if (counter == index)
+                return value;
+            
+            counter++;
+        }
+
+        // value not found
+        return null;
+    }
+
     @Override
     public void pop(E value) {
 
