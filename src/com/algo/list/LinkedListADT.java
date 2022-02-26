@@ -8,4 +8,8 @@ public interface LinkedListADT<E> {
 
     int getSize();
 
+    E getFirstValue();
+
+    E getLastValue();
+
 }
