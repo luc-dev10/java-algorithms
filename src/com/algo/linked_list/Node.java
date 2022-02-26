@@ -1,4 +1,4 @@
-package com.algo.list;
+package com.algo.linked_list;
 
 public class Node<E> {
 

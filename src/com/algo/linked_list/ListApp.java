@@ -1,4 +1,4 @@
-package com.algo.list;
+package com.algo.linked_list;
 
 public class ListApp {
     public static void main(String[] args) {
@@ -6,8 +6,8 @@ public class ListApp {
         // define list
         LinkedList<Integer> integerLinkedList = new LinkedList<>();
         integerLinkedList.push(1);
-        //        integerLinkedList.push(2);
-        //        integerLinkedList.push(3);
+        integerLinkedList.push(2);
+        integerLinkedList.push(3);
 
         printValuesFromList(integerLinkedList);
         //_____________________________
