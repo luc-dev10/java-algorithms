@@ -18,6 +18,10 @@ public class ListApp {
 
         //_____________________________
 
+        integerLinkedList.push(4);
+        integerLinkedList.push(5);
+        printValuesFromList(integerLinkedList);
+
     }
 
     // method to print values from list
