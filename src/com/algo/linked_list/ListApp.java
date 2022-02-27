@@ -12,11 +12,17 @@ public class ListApp {
         //_____________________________
 
         // test pop
-        integerLinkedList.pop();
-        integerLinkedList.pop();
-        integerLinkedList.pop();
+        //        integerLinkedList.pop();
+        //        integerLinkedList.pop();
+        //        integerLinkedList.pop();
         printValuesFromList(integerLinkedList);
 
+        //_____________________________
+
+        // reverse
+        integerLinkedList.reverse();
+        printValuesFromList(integerLinkedList);
+        
         //_____________________________
 
         //        integerLinkedList.push(4);

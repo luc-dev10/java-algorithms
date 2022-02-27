@@ -64,6 +64,28 @@ public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
 
     }
 
+    // reverse
+    public void reverse() {
+
+        if (this.size <= 1)
+            return;
+
+        Node<E> currentNode = this.head;
+        this.head = this.tail;
+        this.tail = currentNode;
+
+        Node<E> nextNode;
+        Node<E> previousNode = null;
+
+        while (currentNode != null) {
+            nextNode = currentNode.getNextNode();
+            currentNode.setNextNode(previousNode);
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+
+    }
+
     // get by index
     public E get(int index) {
 
