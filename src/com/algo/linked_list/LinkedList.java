@@ -40,25 +40,24 @@ public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
     @Override
     public void pop() {
 
+        // size is greater than 1
         Node<E> currentNode = this.head;
-        Node<E> previousNode = null;
-
         while (currentNode != null) {
 
+            // prevent tail
             if (currentNode == tail) {
-                if (currentNode == head) {
-                    head = null;
-                    tail = null;
-                } else {
-                    Node<E> temp = currentNode.getNextNode();
-                    previousNode.setNextNode(temp);
-                    tail = previousNode;
-                }
-                size--;
-                break;
+                this.head = null;
+                this.tail = null;
+                this.size--;
+                return;
+            } else if (currentNode.getNextNode() == tail) {
+                currentNode.setNextNode(null);
+                tail = currentNode;
+                this.size--;
+                return;
             }
 
-            previousNode = currentNode;
+            // update loop
             currentNode = currentNode.getNextNode();
         }
 
@@ -70,7 +69,10 @@ public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
         if (this.size <= 1)
             return;
 
+        // keep copy for loop & assignment
         Node<E> currentNode = this.head;
+
+        // head = tail, tail = head
         this.head = this.tail;
         this.tail = currentNode;
 
@@ -89,6 +91,7 @@ public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
     // get by index
     public E get(int index) {
 
+        // index higher than size
         if (index >= size)
             return null;
 
@@ -96,7 +99,6 @@ public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
         for (E value : this) {
             if (counter == index)
                 return value;
-
             counter++;
         }
 
