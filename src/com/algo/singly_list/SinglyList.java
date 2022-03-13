@@ -1,14 +1,17 @@
-package com.algo.linked_list;
+package com.algo.singly_list;
+
+import com.algo.linked_list.LinkedListADT;
+import com.algo.linked_list.Node;
 
 import java.util.Iterator;
 
-public class LinkedList<E> implements LinkedListADT<E>, Iterable<E> {
+public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
 
     private int size;
     private Node<E> head;
     private Node<E> tail;
 
-    public LinkedList() {
+    public SinglyList() {
         this.head = null;
         this.tail = null;
         this.size = 0;
@@ -174,8 +177,8 @@ class LinkedListIterator<E> implements Iterator<E> {
     // current value
     Node<E> current;
 
-    public LinkedListIterator(LinkedList<E> linkedList) {
-        current = linkedList.getHead();
+    public LinkedListIterator(SinglyList<E> singlyList) {
+        current = singlyList.getHead();
     }
 
     @Override

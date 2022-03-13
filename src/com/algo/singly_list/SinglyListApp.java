@@ -1,27 +1,27 @@
-package com.algo.linked_list;
+package com.algo.singly_list;
 
-public class ListApp {
+public class SinglyListApp {
     public static void main(String[] args) {
 
         // define list
-        LinkedList<Integer> integerLinkedList = new LinkedList<>();
-        integerLinkedList.push(1);
-        integerLinkedList.push(2);
-        integerLinkedList.push(3);
+        SinglyList<Integer> integerSinglyList = new SinglyList<>();
+        integerSinglyList.push(1);
+        integerSinglyList.push(2);
+        integerSinglyList.push(3);
 
         //_____________________________
 
         // test pop
-        integerLinkedList.pop();
+        integerSinglyList.pop();
         //        integerLinkedList.pop();
         //        integerLinkedList.pop();
-        printValuesFromList(integerLinkedList);
+        printValuesFromList(integerSinglyList);
 
         //_____________________________
 
         // reverse
-        integerLinkedList.reverse();
-        printValuesFromList(integerLinkedList);
+        integerSinglyList.reverse();
+        printValuesFromList(integerSinglyList);
 
         //_____________________________
 
@@ -44,7 +44,7 @@ public class ListApp {
     }
 
     // method to print values from list
-    public static void printValuesFromList(LinkedList<Integer> integerLinkedList) {
+    public static void printValuesFromList(SinglyList<Integer> integerLinkedList) {
         for (Integer i : integerLinkedList)
             System.out.printf("Item: %d\n", i);
         System.out.printf("Size: %d\n", integerLinkedList.getSize());

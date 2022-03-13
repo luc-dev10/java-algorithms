@@ -12,4 +12,5 @@ public interface LinkedListADT<E> {
 
     E getLastValue();
 
+    void reverse();
 }
