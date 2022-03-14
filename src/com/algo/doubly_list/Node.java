@@ -1,13 +1,15 @@
-package com.algo.linked_list;
+package com.algo.doubly_list;
 
 public class Node<E> {
 
     private E value;
     private Node<E> nextNode;
+    private Node<E> previousNode;
 
     public Node(E value) {
         this.value = value;
         this.nextNode = null;
+        this.previousNode = null;
     }
 
     public E getValue() {
@@ -24,5 +26,13 @@ public class Node<E> {
 
     public void setNextNode(Node<E> next) {
         this.nextNode = next;
+    }
+
+    public Node<E> getPreviousNode() {
+        return previousNode;
+    }
+
+    public void setPreviousNode(Node<E> previousNode) {
+        this.previousNode = previousNode;
     }
 }

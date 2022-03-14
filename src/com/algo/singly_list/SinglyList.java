@@ -1,7 +1,6 @@
 package com.algo.singly_list;
 
 import com.algo.linked_list.LinkedListADT;
-import com.algo.linked_list.Node;
 
 import java.util.Iterator;
 
