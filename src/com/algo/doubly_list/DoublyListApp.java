@@ -20,6 +20,10 @@ public class DoublyListApp {
         // shift
         integerDoublyList.shift();
 
+        // unshift
+        integerDoublyList.unshift(100);
+        integerDoublyList.unshift(200);
+
         // print list
         printList(integerDoublyList);
 

@@ -79,9 +79,27 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
         this.size--;
     }
 
+    // unshift
+    public void unshift(E value) {
+        Node<E> node = new Node<E>(value);
+        if (this.size == 0) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            this.head.setPreviousNode(node);
+            node.setNextNode(this.head);
+            this.head = node;
+        }
+        this.size++;
+    }
+
     @Override
     public void reverse() {
+        if (this.size == 0)
+            return;
 
+        // reverse head tail
+        
     }
 
     @Override
