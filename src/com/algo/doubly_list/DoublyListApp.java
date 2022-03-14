@@ -8,6 +8,17 @@ public class DoublyListApp {
         integerDoublyList.push(2);
         integerDoublyList.push(3);
         integerDoublyList.push(4);
+        integerDoublyList.push(5);
+        integerDoublyList.push(6);
+        integerDoublyList.push(7);
+        integerDoublyList.push(8);
+
+        // pop
+        integerDoublyList.pop();
+        integerDoublyList.pop();
+
+        // shift
+        integerDoublyList.shift();
 
         // print list
         printList(integerDoublyList);

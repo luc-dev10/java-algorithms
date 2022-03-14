@@ -47,6 +47,41 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     @Override
     public void pop() {
 
+        if (this.size == 1) {
+            this.head = null;
+            this.tail = null;
+            this.size--;
+        } else if (this.size > 1) {
+            Node<E> tempNode = this.tail.getPreviousNode();
+            this.tail.setPreviousNode(null);
+            tempNode.setNextNode(null);
+            this.tail = tempNode;
+            this.size--;
+        }
+
+    }
+
+    // shift
+    public void shift() {
+
+        if (this.size == 0)
+            return;
+
+        if (this.size == 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            Node<E> temp = this.head.getNextNode();
+            head.setNextNode(null);
+            temp.setPreviousNode(null);
+            this.head = temp;
+        }
+        this.size--;
+    }
+
+    @Override
+    public void reverse() {
+
     }
 
     @Override
@@ -56,17 +91,12 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
 
     @Override
     public E getFirstValue() {
-        return null;
+        return this.head != null ? this.head.getValue() : null;
     }
 
     @Override
     public E getLastValue() {
-        return null;
-    }
-
-    @Override
-    public void reverse() {
-
+        return this.tail != null ? this.tail.getValue() : null;
     }
 
     @Override
