@@ -37,18 +37,26 @@ public class DoublyListApp {
 
         // test insert
         //        integerDoublyList.insert(integerDoublyList.getSize(), 10);
+        //        for (int i = 0; i < 9; i++)
+        //            integerDoublyList.insert(i, i * 1000);
+        printList(integerDoublyList);
+        System.out.printf("Size: %d\n", integerDoublyList.getSize());
 
-        integerDoublyList.insert(0, 0);
-        integerDoublyList.insert(1, 1000);
-        integerDoublyList.insert(2, 2000);
-        integerDoublyList.insert(3, 3000);
-        integerDoublyList.insert(4, 4000);
-        integerDoublyList.insert(5, 5000);
-        integerDoublyList.insert(6, 6000);
-        integerDoublyList.insert(7, 7000);
-        integerDoublyList.insert(8, 8000);
+        // adding
+        System.out.println("adding");
+        for (int i = 0; i < 9; i++)
+            integerDoublyList.insert(i, i * 1000);
 
         printList(integerDoublyList);
+        System.out.printf("Size: %d\n", integerDoublyList.getSize());
+
+        // removing
+        System.out.println("removing");
+        for (int i = 0; i < 9; i++)
+            integerDoublyList.remove(0);
+
+        printList(integerDoublyList);
+        System.out.printf("Size: %d\n", integerDoublyList.getSize());
 
     }
 

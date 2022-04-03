@@ -172,6 +172,37 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
 
     }
 
+    public boolean remove(int index) {
+        if (this.size < index || index < 0) {
+            return false;
+        } else if (index == 0) {
+            this.shift();
+            return true;
+        } else if (index == this.size - 1) {
+            this.pop();
+            return true;
+        } else {
+
+            Node<E> currentNode = this.get(index);
+            Node<E> previousNode = currentNode.getPreviousNode();
+            Node<E> nextNode = currentNode.getNextNode();
+
+            // empty values
+            currentNode.setNextNode(null);
+            currentNode.setPreviousNode(null);
+
+            // patch
+            previousNode.setNextNode(nextNode);
+            nextNode.setPreviousNode(previousNode);
+
+            // update size
+            size--;
+
+            return true;
+        }
+
+    }
+
     @Override
     public void reverse() {
         if (this.size == 0)
