@@ -5,25 +5,32 @@ public class SinglyListApp {
 
         // define list
         SinglyList<Integer> integerSinglyList = new SinglyList<>();
-        integerSinglyList.push(1);
-        integerSinglyList.push(2);
-        integerSinglyList.push(3);
+        for (int i = 0; i < 10; i++) {
+            integerSinglyList.push(i);
+        }
 
         //_____________________________
 
-        // test pop
-        integerSinglyList.pop();
-        //        integerLinkedList.pop();
-        //        integerLinkedList.pop();
-        printValuesFromList(integerSinglyList);
+        //        // test pop
+        //        integerSinglyList.pop();
+        //        //        integerLinkedList.pop();
+        //        //        integerLinkedList.pop();
+        //        printValuesFromList(integerSinglyList);
 
         //_____________________________
 
         // reverse
         integerSinglyList.reverse();
-        printValuesFromList(integerSinglyList);
+        //        printValuesFromList(integerSinglyList);
 
         //_____________________________
+
+        // shift
+        for (int i = 0; i < 5; i++) {
+            integerSinglyList.unshift(i * 10);
+        }
+
+        printValuesFromList(integerSinglyList);
 
         //        integerLinkedList.push(4);
         //        integerLinkedList.push(5);

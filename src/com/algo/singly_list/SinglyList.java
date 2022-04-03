@@ -65,6 +65,41 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
 
     }
 
+    public E shift() {
+
+        if (size == 0) {
+            return null;
+        }
+
+        E value = head.getValue();
+        if (size == 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            Node<E> tempNode = this.head.getNextNode();
+            this.head.setNextNode(null);
+            this.head = tempNode;
+        }
+
+        size--;
+        return value;
+
+    }
+
+    public void unshift(E value) {
+
+        Node<E> newNode = new Node<>(value);
+        if (size == 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.setNextNode(this.head);
+            this.head = newNode;
+        }
+
+        size++;
+    }
+
     // reverse
     public void reverse() {
 
