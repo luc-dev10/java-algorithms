@@ -124,6 +124,26 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
         return current != null ? current.getValue() : null;
     }
 
+    public boolean set(int index, E value) {
+        if (index >= size || index < 0)
+            return false;
+
+        Node<E> current = this.head;
+        int count = 0;
+        while (current != null) {
+
+            if (index == count) {
+                current.setValue(value);
+                return true;
+            }
+            // update index
+            count++;
+            current = current.getNextNode();
+        }
+
+        return false;
+    }
+
     @Override
     public void reverse() {
         if (this.size == 0)

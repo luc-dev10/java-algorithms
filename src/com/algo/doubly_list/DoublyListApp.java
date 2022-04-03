@@ -24,14 +24,16 @@ public class DoublyListApp {
         integerDoublyList.unshift(100);
         integerDoublyList.unshift(200);
 
-        // print list
-        printList(integerDoublyList);
-
         // print size
         System.out.printf("Size: %d\n", integerDoublyList.getSize());
 
         // get method
         System.out.printf("Value :%d\n", integerDoublyList.get(0));
+
+        // set method
+        printList(integerDoublyList);
+        System.out.println(integerDoublyList.set(3, 300));
+        printList(integerDoublyList);
 
     }
 
