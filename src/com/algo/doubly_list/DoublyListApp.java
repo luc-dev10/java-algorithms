@@ -28,7 +28,11 @@ public class DoublyListApp {
         printList(integerDoublyList);
 
         // print size
-        System.out.printf("Size: %d", integerDoublyList.getSize());
+        System.out.printf("Size: %d\n", integerDoublyList.getSize());
+
+        // get method
+        System.out.printf("Value :%d\n", integerDoublyList.get(0));
+
     }
 
     // loop to print

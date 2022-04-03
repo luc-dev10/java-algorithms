@@ -47,36 +47,42 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     @Override
     public void pop() {
 
-        if (this.size == 1) {
+        // do nothing if size = 0
+        if (this.size == 0)
+            return;
+
+        if (size == 1) {
             this.head = null;
             this.tail = null;
-            this.size--;
-        } else if (this.size > 1) {
+        } else {
             Node<E> tempNode = this.tail.getPreviousNode();
             this.tail.setPreviousNode(null);
             tempNode.setNextNode(null);
             this.tail = tempNode;
-            this.size--;
         }
+
+        this.size--;
 
     }
 
     // shift
-    public void shift() {
+    public Node<E> shift() {
 
         if (this.size == 0)
-            return;
+            return null;
 
+        Node<E> temp = this.head.getNextNode();
         if (this.size == 1) {
             this.head = null;
             this.tail = null;
         } else {
-            Node<E> temp = this.head.getNextNode();
             head.setNextNode(null);
             temp.setPreviousNode(null);
             this.head = temp;
         }
         this.size--;
+
+        return temp;
     }
 
     // unshift
@@ -93,13 +99,38 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
         this.size++;
     }
 
+    public E get(int index) {
+        if (index >= size || index < 0)
+            return null;
+
+        Node<E> current = null;
+        if (index > (this.size / 2)) {
+            current = this.tail;
+            int count = this.size - 1;
+            while (count != index) {
+                current = current.getPreviousNode();
+                count--;
+            }
+
+        } else {
+            current = this.head;
+            int count = 0;
+            while (count != index) {
+                current = current.getNextNode();
+                count++;
+            }
+        }
+
+        return current != null ? current.getValue() : null;
+    }
+
     @Override
     public void reverse() {
         if (this.size == 0)
             return;
 
         // reverse head tail
-        
+
     }
 
     @Override
