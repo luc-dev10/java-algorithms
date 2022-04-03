@@ -12,7 +12,7 @@ public class StackApp {
 
         // display after pop
         for (int i = integerStack.size(); i > 6; i--)
-            integerStack.pop();
+            System.out.printf("Popped: %d\n", integerStack.pop());
 
         // display the pop
         System.out.println(integerStack.toString());
