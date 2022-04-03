@@ -7,19 +7,29 @@ public class Stack<E> {
 
     private final SinglyList<E> singlyList = new SinglyList<>();
 
-    // pop
+    // pop - O(1)
     public E pop() {
         return singlyList.shift();
     }
 
-    // push
+    // push O(1)
     public void push(E value) {
         singlyList.unshift(value);
     }
 
-    // size
+    // size O(1)
     public int size() {
         return singlyList.getSize();
+    }
+
+    // get by index - O(n)
+    public E get(int index) {
+        return singlyList.get(index);
+    }
+
+    // set by index - O(n)
+    public void set(int index, E value) {
+        singlyList.set(index, value);
     }
 
     @Override
