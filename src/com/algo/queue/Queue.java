@@ -1,6 +1,7 @@
 package com.algo.queue;
 
 import com.algo.doubly_list.DoublyList;
+import com.algo.doubly_list.Node;
 
 // FIFO
 public class Queue<E> {
@@ -14,12 +15,27 @@ public class Queue<E> {
 
     // pop
     public E pop() {
-        return doublyList.pop();
+
+        Node<E> shiftNode = doublyList.shift();
+
+        return shiftNode != null ? shiftNode
+                .getValue() : null;
     }
 
     // size
     public int size() {
         return doublyList.getSize();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (E value : doublyList)
+            stringBuilder.append("Item: ")
+                         .append(value)
+                         .append("\n");
+        return stringBuilder.toString();
     }
 
 }

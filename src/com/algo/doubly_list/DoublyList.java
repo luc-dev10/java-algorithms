@@ -71,14 +71,15 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
         if (this.size == 0)
             return null;
 
-        Node<E> temp = this.head.getNextNode();
+        Node<E> temp = this.head;
         if (this.size == 1) {
             this.head = null;
             this.tail = null;
         } else {
+            Node<E> currentNode = this.head.getNextNode();
             head.setNextNode(null);
-            temp.setPreviousNode(null);
-            this.head = temp;
+            currentNode.setPreviousNode(null);
+            this.head = currentNode;
         }
         this.size--;
 
