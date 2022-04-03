@@ -30,23 +30,11 @@ public class SinglyListApp {
             integerSinglyList.unshift(i * 10);
         }
 
-        printValuesFromList(integerSinglyList);
+        // pop
+        while (integerSinglyList.getSize() > 0)
+            integerSinglyList.pop();
 
-        //        integerLinkedList.push(4);
-        //        integerLinkedList.push(5);
-        //
-        //        //_____________________________
-        //
-        //        // test set and get on index
-        //        boolean isValueSetOnIndex = integerLinkedList.set(1, 10);
-        //        System.out.printf("Is Value set: %b\nNew Value: %d\n", isValueSetOnIndex, integerLinkedList.get(1));
-        //
-        //        //_____________________________
-        //
-        //        // test insert
-        //        boolean isNodeInserted = integerLinkedList.insertOnIndex(2, 40);
-        //        System.out.printf("Is Node inserted: %b\n", isNodeInserted);
-        //        printValuesFromList(integerLinkedList);
+        printValuesFromList(integerSinglyList);
 
     }
 

@@ -43,13 +43,13 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
     public E pop() {
 
         E value = this.tail != null ? this.tail.getValue() : null;
-
+        
         // size is greater than 1
         Node<E> currentNode = this.head;
         while (currentNode != null) {
 
             // prevent tail
-            if (currentNode == tail) {
+            if (this.size == 1) {
                 this.head = null;
                 this.tail = null;
                 this.size--;

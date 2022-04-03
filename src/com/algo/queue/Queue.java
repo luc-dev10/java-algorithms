@@ -12,6 +12,11 @@ public class Queue<E> {
         doublyList.push(value);
     }
 
+    // pop
+    public E pop() {
+        return doublyList.pop();
+    }
+
     // size
     public int size() {
         return doublyList.getSize();
