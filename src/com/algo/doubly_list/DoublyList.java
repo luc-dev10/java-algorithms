@@ -44,25 +44,25 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     }
 
     // pop last item
-    @Override
-    public void pop() {
+    public E pop() {
 
         // do nothing if size = 0
         if (this.size == 0)
-            return;
+            return null;
 
+        E value = this.tail.getValue();
         if (size == 1) {
             this.head = null;
             this.tail = null;
         } else {
             Node<E> tempNode = this.tail.getPreviousNode();
-            this.tail.setPreviousNode(null);
             tempNode.setNextNode(null);
+            this.tail.setPreviousNode(null);
             this.tail = tempNode;
         }
 
         this.size--;
-
+        return value;
     }
 
     // shift

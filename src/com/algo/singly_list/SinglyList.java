@@ -40,7 +40,9 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
     }
 
     @Override
-    public void pop() {
+    public E pop() {
+
+        E value = this.tail != null ? this.tail.getValue() : null;
 
         // size is greater than 1
         Node<E> currentNode = this.head;
@@ -51,18 +53,18 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
                 this.head = null;
                 this.tail = null;
                 this.size--;
-                return;
+                break;
             } else if (currentNode.getNextNode() == tail) {
                 currentNode.setNextNode(null);
                 tail = currentNode;
                 this.size--;
-                return;
+                break;
             }
 
             // update loop
             currentNode = currentNode.getNextNode();
         }
-
+        return value;
     }
 
     public E shift() {
