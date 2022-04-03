@@ -1,42 +1,44 @@
 package com.algo.stack;
 
-import com.algo.singly_list.SinglyList;
+import com.algo.doubly_list.DoublyList;
+import com.algo.doubly_list.Node;
 
 // LIFO = Last Element Added to Stack is the First Element Removed
 public class Stack<E> {
 
-    private final SinglyList<E> singlyList = new SinglyList<>();
+    private final DoublyList<E> doublyList = new DoublyList<>();
 
     // pop - O(1)
     public E pop() {
-        return singlyList.shift();
+        return doublyList.pop();
     }
 
     // push O(1)
     public void push(E value) {
-        singlyList.unshift(value);
+        doublyList.push(value);
     }
 
     // size O(1)
     public int size() {
-        return singlyList.getSize();
+        return doublyList.getSize();
     }
 
     // get by index - O(n)
     public E get(int index) {
-        return singlyList.get(index);
+        Node<E> node = doublyList.get(index);
+        return node != null ? node.getValue() : null;
     }
 
     // set by index - O(n)
     public void set(int index, E value) {
-        singlyList.set(index, value);
+        doublyList.set(index, value);
     }
 
     @Override
     public String toString() {
 
         StringBuilder stringBuilder = new StringBuilder();
-        for (E value : singlyList)
+        for (E value : doublyList)
             stringBuilder.append(value)
                          .append("\n");
 
