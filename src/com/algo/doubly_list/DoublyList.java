@@ -99,7 +99,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
         this.size++;
     }
 
-    public E get(int index) {
+    public Node<E> get(int index) {
         if (index >= size || index < 0)
             return null;
 
@@ -121,7 +121,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
             }
         }
 
-        return current != null ? current.getValue() : null;
+        return current;
     }
 
     public boolean set(int index, E value) {
@@ -142,6 +142,34 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
         }
 
         return false;
+    }
+
+    // insert
+    public boolean insert(int index, E value) {
+
+        if (this.size < index || index < 0)
+            return false;
+
+        if (this.size == 0 || this.size == 1 || this.size == index) {
+            this.push(value);
+            return true;
+        } else if (index == 0) {
+            this.unshift(value);
+            return true;
+        } else {
+
+            Node<E> newNode = new Node<>(value);
+            Node<E> previousNode = this.get(index - 1);
+            Node<E> nextNode = previousNode.getNextNode();
+
+            previousNode.setNextNode(newNode);
+            nextNode.setPreviousNode(newNode);
+            newNode.setPreviousNode(previousNode);
+            newNode.setNextNode(nextNode);
+            this.size++;
+            return true;
+        }
+
     }
 
     @Override

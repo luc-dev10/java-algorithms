@@ -13,26 +13,41 @@ public class DoublyListApp {
         integerDoublyList.push(7);
         integerDoublyList.push(8);
 
-        // pop
-        integerDoublyList.pop();
-        integerDoublyList.pop();
+        //        // pop
+        //        integerDoublyList.pop();
+        //        integerDoublyList.pop();
+        //
+        //        // shift
+        //        integerDoublyList.shift();
+        //
+        //        // unshift
+        //        integerDoublyList.unshift(100);
+        //        integerDoublyList.unshift(200);
+        //
+        //        // print size
+        //        System.out.printf("Size: %d\n", integerDoublyList.getSize());
+        //
+        //        // get method
+        //        System.out.printf("Value :%d\n", integerDoublyList.get(0));
+        //
+        //        // set method
+        //        printList(integerDoublyList);
+        //        System.out.println(integerDoublyList.set(3, 300));
+        //        printList(integerDoublyList);
 
-        // shift
-        integerDoublyList.shift();
+        // test insert
+        //        integerDoublyList.insert(integerDoublyList.getSize(), 10);
 
-        // unshift
-        integerDoublyList.unshift(100);
-        integerDoublyList.unshift(200);
+        integerDoublyList.insert(0, 0);
+        integerDoublyList.insert(1, 1000);
+        integerDoublyList.insert(2, 2000);
+        integerDoublyList.insert(3, 3000);
+        integerDoublyList.insert(4, 4000);
+        integerDoublyList.insert(5, 5000);
+        integerDoublyList.insert(6, 6000);
+        integerDoublyList.insert(7, 7000);
+        integerDoublyList.insert(8, 8000);
 
-        // print size
-        System.out.printf("Size: %d\n", integerDoublyList.getSize());
-
-        // get method
-        System.out.printf("Value :%d\n", integerDoublyList.get(0));
-
-        // set method
-        printList(integerDoublyList);
-        System.out.println(integerDoublyList.set(3, 300));
         printList(integerDoublyList);
 
     }
