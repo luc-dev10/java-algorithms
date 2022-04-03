@@ -205,10 +205,24 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
 
     @Override
     public void reverse() {
-        if (this.size == 0)
+        if (this.size <= 1)
             return;
 
         // reverse head tail
+        Node<E> temp = this.tail;
+        this.tail = this.head;
+        this.head = temp;
+
+        while (temp != null) {
+
+            Node<E> previousNode = temp.getPreviousNode();
+            Node<E> nextNode = temp.getNextNode();
+            temp.setPreviousNode(nextNode);
+            temp.setNextNode(previousNode);
+
+            temp = temp.getNextNode();
+
+        }
 
     }
 

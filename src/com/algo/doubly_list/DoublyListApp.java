@@ -58,6 +58,10 @@ public class DoublyListApp {
         printList(integerDoublyList);
         System.out.printf("Size: %d\n", integerDoublyList.getSize());
 
+        // testing reverse
+        integerDoublyList.reverse();
+        printList(integerDoublyList);
+
     }
 
     // loop to print
