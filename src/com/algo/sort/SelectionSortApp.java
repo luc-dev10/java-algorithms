@@ -21,9 +21,13 @@ public class SelectionSortApp {
                 if (numbers[j] < numbers[indexOfLowest])
                     indexOfLowest = j;
             }
-            int temp = numbers[i];
-            numbers[i] = numbers[indexOfLowest];
-            numbers[indexOfLowest] = temp;
+
+            if (i != indexOfLowest) {
+                int temp = numbers[i];
+                numbers[i] = numbers[indexOfLowest];
+                numbers[indexOfLowest] = temp;
+            }
+
         }
 
     }
