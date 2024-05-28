@@ -1,4 +1,4 @@
-package com.algo.search;
+package com.lucio.algo.search;
 
 public class BinarySearchApp {
     public static void main(String[] args) {
@@ -20,13 +20,10 @@ public class BinarySearchApp {
 
         while (start != end) {
 
-            if (number == items[mid])
-                return mid;
+            if (number == items[mid]) return mid;
 
-            if (number > items[mid])
-                start = mid + 1;
-            else
-                end = mid - 1;
+            if (number > items[mid]) start = mid + 1;
+            else end = mid - 1;
 
             mid = (end + start) / 2;
         }

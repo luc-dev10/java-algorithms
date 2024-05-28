@@ -1,7 +1,6 @@
-package com.algo.linked_list;
+package com.lucio.algo.structure.list;
 
 public interface LinkedListADT<E> {
-
     void push(E value);
 
     E pop();

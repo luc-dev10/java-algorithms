@@ -1,4 +1,4 @@
-package com.algo.sort;
+package com.lucio.algo.sort;
 
 public class BubbleSort {
     public static void main(String[] args) {
@@ -26,8 +26,7 @@ public class BubbleSort {
                 }
             }
 
-            if (isSwapped)
-                break;
+            if (isSwapped) break;
         }
 
     }

@@ -1,4 +1,6 @@
-package com.algo.singly_list;
+package com.lucio.algo.doubly_list;
+
+import com.lucio.algo.structure.list.SinglyList;
 
 public class SinglyListApp {
     public static void main(String[] args) {
@@ -31,8 +33,7 @@ public class SinglyListApp {
         }
 
         // pop
-        while (integerSinglyList.getSize() > 0)
-            integerSinglyList.pop();
+        while (integerSinglyList.getSize() > 0) integerSinglyList.pop();
 
         printValuesFromList(integerSinglyList);
 

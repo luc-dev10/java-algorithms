@@ -1,4 +1,4 @@
-package com.algo.doubly_list;
+package com.lucio.algo.structure.node;
 
 public class Node<E> {
 

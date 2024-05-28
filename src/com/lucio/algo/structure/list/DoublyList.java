@@ -1,11 +1,10 @@
-package com.algo.doubly_list;
+package com.lucio.algo.structure.list;
 
-import com.algo.linked_list.LinkedListADT;
+import com.lucio.algo.structure.node.Node;
 
 import java.util.Iterator;
 
 public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
-
     // props
     private Node<E> head;
     private Node<E> tail;
@@ -47,8 +46,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     public E pop() {
 
         // do nothing if size = 0
-        if (this.size == 0)
-            return null;
+        if (this.size == 0) return null;
 
         E value = this.tail.getValue();
         if (size == 1) {
@@ -68,8 +66,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     // shift
     public Node<E> shift() {
 
-        if (this.size == 0)
-            return null;
+        if (this.size == 0) return null;
 
         Node<E> temp = this.head;
         if (this.size == 1) {
@@ -101,8 +98,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     }
 
     public Node<E> get(int index) {
-        if (index >= size || index < 0)
-            return null;
+        if (index >= size || index < 0) return null;
 
         Node<E> current = null;
         if (index > (this.size / 2)) {
@@ -126,8 +122,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     }
 
     public boolean set(int index, E value) {
-        if (index >= size || index < 0)
-            return false;
+        if (index >= size || index < 0) return false;
 
         Node<E> current = this.head;
         int count = 0;
@@ -148,8 +143,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     // insert
     public boolean insert(int index, E value) {
 
-        if (this.size < index || index < 0)
-            return false;
+        if (this.size < index || index < 0) return false;
 
         if (this.size == 0 || this.size == 1 || this.size == index) {
             this.push(value);
@@ -206,8 +200,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
 
     @Override
     public void reverse() {
-        if (this.size <= 1)
-            return;
+        if (this.size <= 1) return;
 
         // reverse head tail
         Node<E> temp = this.tail;

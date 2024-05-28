@@ -1,4 +1,4 @@
-package com.algo.recursion;
+package com.lucio.algo.recursion;
 
 public class RecursiveIteration {
     public static void main(String[] args) {
@@ -9,8 +9,7 @@ public class RecursiveIteration {
     public static void iterate(int[] numbers, int index) {
 
         // base case
-        if (numbers.length <= index)
-            return;
+        if (numbers.length <= index) return;
 
         System.out.println(numbers[index]);
         iterate(numbers, ++index);

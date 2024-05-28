@@ -1,4 +1,4 @@
-package com.algo.sort;
+package com.lucio.algo.sort;
 
 public class InsertionSort {
 
@@ -19,8 +19,7 @@ public class InsertionSort {
             int temp = numbers[i];
 
             int j = i - 1;
-            while (j >= 0 && numbers[j] > temp)
-                numbers[j + 1] = numbers[j--];
+            while (j >= 0 && numbers[j] > temp) numbers[j + 1] = numbers[j--];
 
             // swap value at the location after loop with lowest
             numbers[j + 1] = temp;

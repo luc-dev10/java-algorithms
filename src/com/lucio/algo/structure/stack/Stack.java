@@ -1,7 +1,7 @@
-package com.algo.stack;
+package com.lucio.algo.structure.stack;
 
-import com.algo.doubly_list.DoublyList;
-import com.algo.doubly_list.Node;
+import com.lucio.algo.structure.list.DoublyList;
+import com.lucio.algo.structure.node.Node;
 
 // LIFO = Last Element Added to Stack is the First Element Removed
 public class Stack<E> {
@@ -40,7 +40,7 @@ public class Stack<E> {
         StringBuilder stringBuilder = new StringBuilder();
         for (E value : doublyList)
             stringBuilder.append(value)
-                         .append("\n");
+                    .append("\n");
 
         return stringBuilder.toString();
     }

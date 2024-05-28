@@ -1,4 +1,4 @@
-package com.algo.sort;
+package com.lucio.algo.sort;
 
 public class SelectionSortApp {
     public static void main(String[] args) {
@@ -18,8 +18,7 @@ public class SelectionSortApp {
 
             int indexOfLowest = i;
             for (int j = i + 1; j < numbers.length; j++) {
-                if (numbers[j] < numbers[indexOfLowest])
-                    indexOfLowest = j;
+                if (numbers[j] < numbers[indexOfLowest]) indexOfLowest = j;
             }
 
             if (i != indexOfLowest) {

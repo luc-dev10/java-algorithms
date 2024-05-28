@@ -1,4 +1,6 @@
-package com.algo.queue;
+package com.lucio.algo.doubly_list;
+
+import com.lucio.algo.structure.queue.Queue;
 
 public class QueueApp {
     public static void main(String[] args) {

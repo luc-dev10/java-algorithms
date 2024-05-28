@@ -1,4 +1,6 @@
-package com.algo.doubly_list;
+package com.lucio.algo.doubly_list;
+
+import com.lucio.algo.structure.list.DoublyList;
 
 public class DoublyListApp {
 

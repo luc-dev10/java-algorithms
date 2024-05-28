@@ -1,4 +1,4 @@
-package com.algo.search;
+package com.lucio.algo.search;
 
 public class LinearSearchApp {
     public static void main(String[] args) {
@@ -15,8 +15,7 @@ public class LinearSearchApp {
     public static int getItemOfIndex(int[] intArray, int number) {
 
         for (int i = 0; i < intArray.length; i++)
-            if (intArray[i] == number)
-                return i;
+            if (intArray[i] == number) return i;
 
         return -1;
     }

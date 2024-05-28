@@ -1,4 +1,6 @@
-package com.algo.stack;
+package com.lucio.algo.doubly_list;
+
+import com.lucio.algo.structure.stack.Stack;
 
 public class StackApp {
     public static void main(String[] args) {

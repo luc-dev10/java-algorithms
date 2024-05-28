@@ -1,7 +1,7 @@
-package com.algo.queue;
+package com.lucio.algo.structure.queue;
 
-import com.algo.doubly_list.DoublyList;
-import com.algo.doubly_list.Node;
+import com.lucio.algo.structure.list.DoublyList;
+import com.lucio.algo.structure.node.Node;
 
 // FIFO
 public class Queue<E> {
@@ -18,8 +18,7 @@ public class Queue<E> {
 
         Node<E> shiftNode = doublyList.shift();
 
-        return shiftNode != null ? shiftNode
-                .getValue() : null;
+        return shiftNode != null ? shiftNode.getValue() : null;
     }
 
     // size
@@ -33,8 +32,8 @@ public class Queue<E> {
 
         for (E value : doublyList)
             stringBuilder.append("Item: ")
-                         .append(value)
-                         .append("\n");
+                    .append(value)
+                    .append("\n");
         return stringBuilder.toString();
     }
 
