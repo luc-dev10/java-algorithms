@@ -5,7 +5,6 @@ import com.lucio.algo.structure.node.SinglyNode;
 import java.util.Iterator;
 
 public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
-
     private int size;
     private SinglyNode<E> head;
     private SinglyNode<E> tail;
@@ -25,9 +24,9 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
         return this.tail;
     }
 
+    // O(1) constant time
     @Override
     public void push(E value) {
-
         SinglyNode<E> node = new SinglyNode<>(value);
         if (this.head == null) {
             this.head = node;
@@ -39,31 +38,45 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
         size++;
     }
 
+    // O(n)
     @Override
     public E pop() {
+        // if size is 0
+        if (this.tail == null) return null;
 
-        E value = this.tail != null ? this.tail.getValue() : null;
+        // _____________________________________
 
-        // size is greater than 1
+        // Get Last value of return
+        E value = this.tail.getValue();
+
+        // _____________________________________
+
+        // If size is 1
+        if (this.size == 1) {
+            this.size--;
+            this.head = null;
+            this.tail = null;
+            return value;
+        }
+
+        // _____________________________________
+
+        // find second last item
         SinglyNode<E> currentNode = this.head;
         while (currentNode != null) {
-
-            // prevent tail
-            if (this.size == 1) {
-                this.head = null;
-                this.tail = null;
-                this.size--;
-                break;
-            } else if (currentNode.getNextNode() == tail) {
-                currentNode.setNextNode(null);
-                tail = currentNode;
-                this.size--;
+            if (currentNode.getNextNode() == this.tail) {
                 break;
             }
 
-            // update loop
             currentNode = currentNode.getNextNode();
         }
+
+        // _____________________________________
+
+        this.tail = currentNode;
+        this.tail.setNextNode(null);
+        this.size--;
+
         return value;
     }
 
