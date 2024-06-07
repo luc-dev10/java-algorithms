@@ -70,8 +70,8 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
         return value;
     }
 
+    // O(1)
     public E shift() {
-
         if (size == 0) {
             return null;
         }
@@ -88,9 +88,9 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
 
         size--;
         return value;
-
     }
 
+    // O(1)
     public void unshift(E value) {
 
         SinglyNode<E> newNode = new SinglyNode<>(value);
@@ -129,11 +129,10 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
 
     }
 
-    // get by index
+    // O(n)
     public E get(int index) {
-
         // index higher than size
-        if (index >= size) return null;
+        if (index >= size) throw new IndexOutOfBoundsException("Index out of bounds.");
 
         int counter = 0;
         for (E value : this) {
