@@ -51,31 +51,21 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
 
         // _____________________________________
 
-        // If size is 1
-        if (this.size == 1) {
-            this.size--;
-            this.head = null;
-            this.tail = null;
-            return value;
-        }
-
-        // _____________________________________
-
         // find second last item
         SinglyNode<E> currentNode = this.head;
-        while (currentNode != null) {
-            if (currentNode.getNextNode() == this.tail) {
-                break;
-            }
+        SinglyNode<E> newTail = currentNode;
 
+        while (currentNode != null) {
+            newTail = currentNode;
             currentNode = currentNode.getNextNode();
         }
 
         // _____________________________________
 
-        this.tail = currentNode;
+        this.tail = newTail;
         this.tail.setNextNode(null);
         this.size--;
+        if (this.size == 1) this.head = this.tail;
 
         return value;
     }
