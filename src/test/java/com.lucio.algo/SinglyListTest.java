@@ -136,4 +136,13 @@ public class SinglyListTest {
         // Test shift nothing
         Assertions.assertNull(emptyLinkedList.pop());
     }
+
+    @Test
+    @DisplayName("Test unshift method in linked list")
+    public void unshiftMethodOfLinkedListTest() {
+        int expected = -1;
+        integerLinkedList.unshift(expected);
+
+        Assertions.assertEquals(expected, integerLinkedList.getFirstValue());
+    }
 }
