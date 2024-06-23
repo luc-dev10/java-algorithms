@@ -43,4 +43,11 @@ public class SinglyListTest {
             Assertions.assertEquals(i, integerLinkedList.get(i));
         }
     }
+
+    @Test
+    @DisplayName("Test get first value method in linked list")
+    public void getFirstValueMethodOfLinkedListTest() {
+        int value = 0;
+        Assertions.assertEquals(value, integerLinkedList.getFirst());
+    }
 }
