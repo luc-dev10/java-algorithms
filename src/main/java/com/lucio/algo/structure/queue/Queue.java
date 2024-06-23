@@ -1,7 +1,7 @@
 package com.lucio.algo.structure.queue;
 
 import com.lucio.algo.structure.list.DoublyList;
-import com.lucio.algo.structure.node.Node;
+import com.lucio.algo.structure.node.DoublyNode;
 
 // FIFO
 public class Queue<E> {
@@ -16,7 +16,7 @@ public class Queue<E> {
     // pop
     public E pop() {
 
-        Node<E> shiftNode = doublyList.shift();
+        DoublyNode<E> shiftNode = doublyList.shift();
 
         return shiftNode != null ? shiftNode.getValue() : null;
     }
@@ -26,15 +26,14 @@ public class Queue<E> {
         return doublyList.getSize();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for (E value : doublyList)
-            stringBuilder.append("Item: ")
-                    .append(value)
-                    .append("\n");
-        return stringBuilder.toString();
-    }
-
+    // @Override
+    // public String toString() {
+    //     StringBuilder stringBuilder = new StringBuilder();
+    //
+    //     for (E value : doublyList)
+    //         stringBuilder.append("Item: ")
+    //                 .append(value)
+    //                 .append("\n");
+    //     return stringBuilder.toString();
+    // }
 }

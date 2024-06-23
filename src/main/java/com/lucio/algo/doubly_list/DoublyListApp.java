@@ -41,34 +41,34 @@ public class DoublyListApp {
         //        integerDoublyList.insert(integerDoublyList.getSize(), 10);
         //        for (int i = 0; i < 9; i++)
         //            integerDoublyList.insert(i, i * 1000);
-        printList(integerDoublyList);
-        System.out.printf("Size: %d\n", integerDoublyList.getSize());
-
-        // adding
-        System.out.println("adding");
-        for (int i = 0; i < 9; i++)
-            integerDoublyList.insert(i, i * 1000);
-
-        printList(integerDoublyList);
-        System.out.printf("Size: %d\n", integerDoublyList.getSize());
-
-        // removing
-        System.out.println("removing");
-        for (int i = 0; i < 9; i++)
-            integerDoublyList.remove(0);
-
-        printList(integerDoublyList);
-        System.out.printf("Size: %d\n", integerDoublyList.getSize());
-
-        // testing reverse
-        integerDoublyList.reverse();
-        printList(integerDoublyList);
+        // printList(integerDoublyList);
+        // System.out.printf("Size: %d\n", integerDoublyList.getSize());
+        //
+        // // adding
+        // System.out.println("adding");
+        // for (int i = 0; i < 9; i++)
+        //     integerDoublyList.insert(i, i * 1000);
+        //
+        // printList(integerDoublyList);
+        // System.out.printf("Size: %d\n", integerDoublyList.getSize());
+        //
+        // // removing
+        // System.out.println("removing");
+        // for (int i = 0; i < 9; i++)
+        //     integerDoublyList.remove(0);
+        //
+        // printList(integerDoublyList);
+        // System.out.printf("Size: %d\n", integerDoublyList.getSize());
+        //
+        // // testing reverse
+        // integerDoublyList.reverse();
+        // printList(integerDoublyList);
 
     }
 
-    // loop to print
-    public static <E> void printList(DoublyList<E> doublyList) {
-        for (E e : doublyList)
-            System.out.println(e);
-    }
+    // // loop to print
+    // public static <E> void printList(DoublyList<E> doublyList) {
+    //     for (E e : doublyList)
+    //         System.out.println(e);
+    // }
 }

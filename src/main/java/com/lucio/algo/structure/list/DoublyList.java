@@ -1,13 +1,11 @@
 package com.lucio.algo.structure.list;
 
-import com.lucio.algo.structure.node.Node;
+import com.lucio.algo.structure.node.DoublyNode;
 
-import java.util.Iterator;
-
-public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
+public class DoublyList<E> implements LinkedListADT<E> {
     // props
-    private Node<E> head;
-    private Node<E> tail;
+    private DoublyNode<E> head;
+    private DoublyNode<E> tail;
     private int size;
 
     // constructor
@@ -18,15 +16,14 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     }
 
     // protected for iterator
-    protected Node<E> getHead() {
+    protected DoublyNode<E> getHead() {
         return this.head;
     }
 
     // push
     @Override
     public void push(E value) {
-
-        Node<E> node = new Node<E>(value);
+        DoublyNode<E> node = new DoublyNode<E>(value);
         if (this.head == null) {
             this.head = node;
         } else {
@@ -53,7 +50,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
             this.head = null;
             this.tail = null;
         } else {
-            Node<E> tempNode = this.tail.getPreviousNode();
+            DoublyNode<E> tempNode = this.tail.getPreviousNode();
             tempNode.setNextNode(null);
             this.tail.setPreviousNode(null);
             this.tail = tempNode;
@@ -64,16 +61,16 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     }
 
     // shift
-    public Node<E> shift() {
+    public DoublyNode<E> shift() {
 
         if (this.size == 0) return null;
 
-        Node<E> temp = this.head;
+        DoublyNode<E> temp = this.head;
         if (this.size == 1) {
             this.head = null;
             this.tail = null;
         } else {
-            Node<E> currentNode = this.head.getNextNode();
+            DoublyNode<E> currentNode = this.head.getNextNode();
             head.setNextNode(null);
             currentNode.setPreviousNode(null);
             this.head = currentNode;
@@ -85,7 +82,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
 
     // unshift
     public void unshift(E value) {
-        Node<E> node = new Node<E>(value);
+        DoublyNode<E> node = new DoublyNode<E>(value);
         if (this.size == 0) {
             this.head = node;
             this.tail = node;
@@ -97,10 +94,10 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
         this.size++;
     }
 
-    public Node<E> get(int index) {
+    public DoublyNode<E> get(int index) {
         if (index >= size || index < 0) return null;
 
-        Node<E> current = null;
+        DoublyNode<E> current = null;
         if (index > (this.size / 2)) {
             current = this.tail;
             int count = this.size - 1;
@@ -124,7 +121,7 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
     public boolean set(int index, E value) {
         if (index >= size || index < 0) return false;
 
-        Node<E> current = this.head;
+        DoublyNode<E> current = this.head;
         int count = 0;
         while (current != null) {
 
@@ -153,9 +150,9 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
             return true;
         } else {
 
-            Node<E> newNode = new Node<>(value);
-            Node<E> previousNode = this.get(index - 1);
-            Node<E> nextNode = previousNode.getNextNode();
+            DoublyNode<E> newNode = new DoublyNode<>(value);
+            DoublyNode<E> previousNode = this.get(index - 1);
+            DoublyNode<E> nextNode = previousNode.getNextNode();
 
             previousNode.setNextNode(newNode);
             nextNode.setPreviousNode(newNode);
@@ -178,9 +175,9 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
             return true;
         } else {
 
-            Node<E> currentNode = this.get(index);
-            Node<E> previousNode = currentNode.getPreviousNode();
-            Node<E> nextNode = currentNode.getNextNode();
+            DoublyNode<E> currentNode = this.get(index);
+            DoublyNode<E> previousNode = currentNode.getPreviousNode();
+            DoublyNode<E> nextNode = currentNode.getNextNode();
 
             // empty values
             currentNode.setNextNode(null);
@@ -203,14 +200,14 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
         if (this.size <= 1) return;
 
         // reverse head tail
-        Node<E> temp = this.tail;
+        DoublyNode<E> temp = this.tail;
         this.tail = this.head;
         this.head = temp;
 
         while (temp != null) {
 
-            Node<E> previousNode = temp.getPreviousNode();
-            Node<E> nextNode = temp.getNextNode();
+            DoublyNode<E> previousNode = temp.getPreviousNode();
+            DoublyNode<E> nextNode = temp.getNextNode();
             temp.setPreviousNode(nextNode);
             temp.setNextNode(previousNode);
 
@@ -235,33 +232,33 @@ public class DoublyList<E> implements LinkedListADT<E>, Iterable<E> {
         return this.tail != null ? this.tail.getValue() : null;
     }
 
-    @Override
-    public Iterator<E> iterator() {
-        return new LinkedListIterator<E>(this);
-    }
+    // @Override
+    // public Iterator<E> iterator() {
+    //     return new LinkedListIterator<E>(this);
+    // }
 
-    // iterator
-    static class LinkedListIterator<E> implements Iterator<E> {
-
-        // current value
-        Node<E> current;
-
-        public LinkedListIterator(DoublyList<E> doublyList) {
-            current = doublyList.getHead();
-        }
-
-        @Override
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        @Override
-        public E next() {
-            E value = current.getValue();
-            current = current.getNextNode();
-            return value;
-        }
-    }
+    // // iterator
+    // static class LinkedListIterator<E> implements Iterator<E> {
+    //
+    //     // current value
+    //     DoublyNode<E> current;
+    //
+    //     public LinkedListIterator(DoublyList<E> doublyList) {
+    //         current = doublyList.getHead();
+    //     }
+    //
+    //     @Override
+    //     public boolean hasNext() {
+    //         return current != null;
+    //     }
+    //
+    //     @Override
+    //     public E next() {
+    //         E value = current.getValue();
+    //         current = current.getNextNode();
+    //         return value;
+    //     }
+    // }
 
 }
 
