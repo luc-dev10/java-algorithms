@@ -1,10 +1,10 @@
 package com.lucio.algo.structure.node;
 
-public class Node<E> {
+public class SinglyNode<E> {
     private E value;
-    private Node<E> nextNode;
+    private SinglyNode<E> nextNode;
 
-    public Node(E value) {
+    public SinglyNode(E value) {
         this.value = value;
         this.nextNode = null;
     }
@@ -17,11 +17,11 @@ public class Node<E> {
         this.value = value;
     }
 
-    public Node<E> getNextNode() {
+    public SinglyNode<E> getNextNode() {
         return nextNode;
     }
 
-    public void setNextNode(Node<E> next) {
+    public void setNextNode(SinglyNode<E> next) {
         this.nextNode = next;
     }
 }

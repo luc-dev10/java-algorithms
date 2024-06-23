@@ -1,14 +1,15 @@
 package com.lucio.algo.structure.list;
 
 import com.lucio.algo.structure.adt.ListADT;
-import com.lucio.algo.structure.node.Node;
+import com.lucio.algo.structure.node.SinglyNode;
 
 import java.util.Iterator;
+import java.util.function.Consumer;
 
 public class SinglyList<E> implements ListADT<E>, Iterable<E> {
     private int size;
-    private Node<E> head;
-    private Node<E> tail;
+    private SinglyNode<E> head;
+    private SinglyNode<E> tail;
 
     public SinglyList() {
         this.head = null;
@@ -16,22 +17,13 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
         this.size = 0;
     }
 
-    // iterator method
-    protected Node<E> getHead() {
-        return this.head;
-    }
-
-    protected Node<E> getTail() {
-        return this.tail;
-    }
-
     // O(n)
-    public Node<E> get(int index) {
+    public SinglyNode<E> get(int index) {
         // index higher than size
-        if (index >= size) throw new IndexOutOfBoundsException("Index out of bounds.");
+        if (index >= size || index < 0) throw new IndexOutOfBoundsException("Index out of bounds.");
 
         int counter = 0;
-        Node<E> current = this.head;
+        SinglyNode<E> current = this.head;
         while (current != null) {
             if (counter == index) return current;
             counter++;
@@ -60,7 +52,7 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
     // O(1) constant time
     @Override
     public void push(E value) {
-        Node<E> node = new Node<>(value);
+        SinglyNode<E> node = new SinglyNode<>(value);
         if (this.head == null) {
             this.head = node;
             this.tail = this.head;
@@ -87,9 +79,9 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
         }
 
         // Get previous
-        Node<E> previous = this.get(index - 1);
-        Node<E> next = previous.getNextNode();
-        Node<E> node = new Node<>(newValue);
+        SinglyNode<E> previous = this.get(index - 1);
+        SinglyNode<E> next = previous.getNextNode();
+        SinglyNode<E> node = new SinglyNode<>(newValue);
         previous.setNextNode(node);
         node.setNextNode(next);
         this.size++;
@@ -111,8 +103,8 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
         }
 
         // Get previous
-        Node<E> previous = this.get(index - 1);
-        Node<E> current = previous.getNextNode();
+        SinglyNode<E> previous = this.get(index - 1);
+        SinglyNode<E> current = previous.getNextNode();
         previous.setNextNode(current.getNextNode());
         current.setNextNode(null);
         this.size--;
@@ -132,8 +124,8 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
         // _____________________________________
 
         // find second last item
-        Node<E> currentNode = this.head;
-        Node<E> newTail = currentNode;
+        SinglyNode<E> currentNode = this.head;
+        SinglyNode<E> newTail = currentNode;
 
         while (currentNode != null) {
             newTail = currentNode;
@@ -162,7 +154,7 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
             this.head = null;
             this.tail = null;
         } else {
-            Node<E> tempNode = this.head.getNextNode();
+            SinglyNode<E> tempNode = this.head.getNextNode();
             this.head.setNextNode(null);
             this.head = tempNode;
         }
@@ -175,7 +167,7 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
     @Override
     public void unshift(E value) {
 
-        Node<E> newNode = new Node<>(value);
+        SinglyNode<E> newNode = new SinglyNode<>(value);
         if (size == 0) {
             this.head = newNode;
             this.tail = newNode;
@@ -193,14 +185,14 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
         if (this.size <= 1) return;
 
         // keep copy for loop & assignment
-        Node<E> currentNode = this.head;
+        SinglyNode<E> currentNode = this.head;
 
         // head = tail, tail = head
         this.head = this.tail;
         this.tail = currentNode;
 
-        Node<E> nextNode;
-        Node<E> previousNode = null;
+        SinglyNode<E> nextNode;
+        SinglyNode<E> previousNode = null;
 
         while (currentNode != null) {
             nextNode = currentNode.getNextNode();
@@ -213,7 +205,7 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
-            Node<E> current = head;
+            SinglyNode<E> current = head;
 
             @Override
             public boolean hasNext() {
@@ -225,6 +217,14 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
                 E value = current.getValue();
                 current = current.getNextNode();
                 return value;
+            }
+
+            @Override
+            public void remove() {
+            }
+
+            @Override
+            public void forEachRemaining(Consumer<? super E> action) {
             }
         };
     }
