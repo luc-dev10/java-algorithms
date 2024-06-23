@@ -6,15 +6,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
-
 public class SinglyListTest {
-    LinkedList<Integer> integerLinkedList = new LinkedList<>();
+    SinglyList<Integer> integerLinkedList = new SinglyList<>();
 
     @BeforeEach
     public void setup() {
         for (int i = 0; i <= 10; i++) {
-            integerLinkedList.add(i);
+            integerLinkedList.push(i);
         }
     }
 
@@ -24,8 +22,8 @@ public class SinglyListTest {
         int expectedSize = 11;
         int unexpectedSize = 10;
 
-        Assertions.assertEquals(this.integerLinkedList.size(), expectedSize);
-        Assertions.assertNotEquals(this.integerLinkedList.size(), unexpectedSize);
+        Assertions.assertEquals(this.integerLinkedList.getSize(), expectedSize);
+        Assertions.assertNotEquals(this.integerLinkedList.getSize(), unexpectedSize);
     }
 
     @Test
@@ -39,8 +37,10 @@ public class SinglyListTest {
         // ____________________
 
         // Expected values
-        for (int i = 0; i < integerLinkedList.size(); i++) {
-            Assertions.assertEquals(i, integerLinkedList.get(i));
+        for (int i = 0; i < integerLinkedList.getSize(); i++) {
+            Assertions.assertEquals(i,
+                    integerLinkedList.get(i)
+                            .getValue());
         }
     }
 
@@ -48,13 +48,21 @@ public class SinglyListTest {
     @DisplayName("Test get first value method in linked list")
     public void getFirstValueMethodOfLinkedListTest() {
         int value = 0;
-        Assertions.assertEquals(value, integerLinkedList.getFirst());
+        Assertions.assertEquals(value, integerLinkedList.getFirstValue());
     }
 
     @Test
     @DisplayName("Test get last value method in linked list")
     public void getLastValueMethodOfLinkedListTest() {
         int value = 10;
-        Assertions.assertEquals(value, integerLinkedList.getLast());
+        Assertions.assertEquals(value, integerLinkedList.getLastValue());
+    }
+
+    @Test
+    @DisplayName("Test push method in linked list")
+    public void pushMethodOfLinkedListTest() {
+        int value = 11;
+        integerLinkedList.push(11);
+        Assertions.assertEquals(value, integerLinkedList.getLastValue());
     }
 }
