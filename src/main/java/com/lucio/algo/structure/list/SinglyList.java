@@ -203,7 +203,7 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return new Iterator<E>() {
+        return new Iterator<>() {
             SinglyNode<E> current = head;
 
             @Override
