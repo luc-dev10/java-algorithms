@@ -2,7 +2,9 @@ package com.lucio.algo.structure.list;
 
 import com.lucio.algo.structure.node.DoublyNode;
 
-public class DoublyList<E> {
+import java.util.Iterator;
+
+public class DoublyList<E> implements Iterable<E> {
     // props
     private DoublyNode<E> head;
     private DoublyNode<E> tail;
@@ -13,11 +15,6 @@ public class DoublyList<E> {
         this.head = null;
         this.tail = null;
         this.size = 0;
-    }
-
-    // protected for iterator
-    protected DoublyNode<E> getHead() {
-        return this.head;
     }
 
     // push
@@ -227,33 +224,22 @@ public class DoublyList<E> {
         return this.tail != null ? this.tail.getValue() : null;
     }
 
-    // @Override
-    // public Iterator<E> iterator() {
-    //     return new LinkedListIterator<E>(this);
-    // }
+    @Override
+    public Iterator<E> iterator() {
+        return new Iterator<>() {
+            DoublyNode<E> current = head;
 
-    // // iterator
-    // static class LinkedListIterator<E> implements Iterator<E> {
-    //
-    //     // current value
-    //     DoublyNode<E> current;
-    //
-    //     public LinkedListIterator(DoublyList<E> doublyList) {
-    //         current = doublyList.getHead();
-    //     }
-    //
-    //     @Override
-    //     public boolean hasNext() {
-    //         return current != null;
-    //     }
-    //
-    //     @Override
-    //     public E next() {
-    //         E value = current.getValue();
-    //         current = current.getNextNode();
-    //         return value;
-    //     }
-    // }
+            @Override
+            public boolean hasNext() {
+                return current != null;
+            }
 
+            @Override
+            public E next() {
+                E value = current.getValue();
+                current = current.getNextNode();
+                return value;
+            }
+        };
+    }
 }
-
