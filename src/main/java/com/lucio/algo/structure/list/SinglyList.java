@@ -127,7 +127,7 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
         SinglyNode<E> currentNode = this.head;
         SinglyNode<E> newTail = currentNode;
 
-        while (currentNode != null) {
+        while (currentNode.getNextNode() != null) {
             newTail = currentNode;
             currentNode = currentNode.getNextNode();
         }

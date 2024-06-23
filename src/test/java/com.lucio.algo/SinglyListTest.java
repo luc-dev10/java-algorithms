@@ -84,4 +84,41 @@ public class SinglyListTest {
                 () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(100)),
                 () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1)));
     }
+
+    @Test
+    @DisplayName("Test remove method in linked list")
+    public void removeMethodOfLinkedListTest() {
+        // Given
+        int index = 2;
+
+        // When
+        integerLinkedList.removeAt(index);
+
+        // Then
+        Assertions.assertAll("Assert remove index test",
+                () -> Assertions.assertNotEquals(index,
+                        integerLinkedList.get(index)
+                                .getValue()),
+                () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(100)),
+                () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1)));
+    }
+
+    @Test
+    @DisplayName("Test pop method in linked list")
+    public void popMethodOfLinkedListTest() {
+        SinglyList<Integer> testSinglyList = new SinglyList<>();
+        int expected = 9;
+        int expectedPop = 10;
+        int actualPop = integerLinkedList.pop();
+
+        Assertions.assertEquals(expected, integerLinkedList.getLastValue());
+        Assertions.assertEquals(expectedPop, actualPop);
+        Assertions.assertEquals(expectedPop, actualPop);
+
+        // ________________________
+
+        // Test popping nothing
+        Assertions.assertNull(testSinglyList.pop());
+        Assertions.assertEquals(expectedPop, integerLinkedList.getSize());
+    }
 }
