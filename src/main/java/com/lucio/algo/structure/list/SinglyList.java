@@ -212,29 +212,20 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return new LinkedListIterator<>(this);
-    }
-}
+        return new Iterator<E>() {
+            Node<E> current = head;
 
-// iterator
-class LinkedListIterator<E> implements Iterator<E> {
+            @Override
+            public boolean hasNext() {
+                return current != null;
+            }
 
-    // current value
-    Node<E> current;
-
-    public LinkedListIterator(SinglyList<E> singlyList) {
-        current = singlyList.getHead();
-    }
-
-    @Override
-    public boolean hasNext() {
-        return current != null;
-    }
-
-    @Override
-    public E next() {
-        E value = current.getValue();
-        current = current.getNextNode();
-        return value;
+            @Override
+            public E next() {
+                E value = current.getValue();
+                current = current.getNextNode();
+                return value;
+            }
+        };
     }
 }
