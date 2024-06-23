@@ -145,4 +145,16 @@ public class SinglyListTest {
 
         Assertions.assertEquals(expected, integerLinkedList.getFirstValue());
     }
+
+    @Test
+    @DisplayName("Test reverse method in linked list")
+    public void reverseMethodOfLinkedListTest() {
+        integerLinkedList.reverse();
+
+        for (int i = 0, a = integerLinkedList.getSize() - 1; i < integerLinkedList.getSize(); i++, a--) {
+            Assertions.assertEquals(a,
+                    integerLinkedList.get(i)
+                            .getValue());
+        }
+    }
 }
