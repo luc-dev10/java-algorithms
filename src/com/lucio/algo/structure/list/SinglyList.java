@@ -105,9 +105,8 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
         size++;
     }
 
-    // reverse
+    // reverse - O(n)
     public void reverse() {
-
         if (this.size <= 1) return;
 
         // keep copy for loop & assignment
@@ -126,7 +125,6 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
             previousNode = currentNode;
             currentNode = nextNode;
         }
-
     }
 
     // O(n)
@@ -166,7 +164,7 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
     public void insertOnIndex(int index, E newValue) {
         if (index < 0 || index > this.size) throw new IndexOutOfBoundsException("Index out of bounds.");
 
-        if (this.size == 0) {
+        if (index == 0) {
             this.unshift(newValue);
             return;
         }
@@ -183,6 +181,28 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
         previous.setNextNode(node);
         node.setNextNode(next);
         this.size++;
+    }
+
+    // remove at index - O(n)
+    public void removeAt(int index) {
+        if (index < 0 || index > this.size) throw new IndexOutOfBoundsException("Index out of bounds.");
+
+        if (index == 0) {
+            this.shift();
+            return;
+        }
+
+        if (this.size == index) {
+            this.pop();
+            return;
+        }
+
+        // Get previous
+        SinglyNode<E> previous = this.get(index - 1);
+        SinglyNode<E> current = previous.getNextNode();
+        previous.setNextNode(current.getNextNode());
+        current.setNextNode(null);
+        this.size--;
     }
 
     @Override
