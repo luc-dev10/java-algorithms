@@ -130,21 +130,23 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
     }
 
     // O(n)
-    public E get(int index) {
+    public SinglyNode<E> get(int index) {
         // index higher than size
         if (index >= size) throw new IndexOutOfBoundsException("Index out of bounds.");
 
         int counter = 0;
-        for (E value : this) {
-            if (counter == index) return value;
+        SinglyNode<E> current = this.head;
+        while (current != null) {
+            if (counter == index) return current;
             counter++;
+            current = current.getNextNode();
         }
 
         // value not found
         return null;
     }
 
-    // set on index
+    // set on index O(n)
     public boolean set(int index, E newValue) {
         SinglyNode<E> currentNode = this.head;
 
@@ -160,28 +162,27 @@ public class SinglyList<E> implements LinkedListADT<E>, Iterable<E> {
         return false;
     }
 
-    // insert on index
-    public boolean insertOnIndex(int index, E newValue) {
-        if (index < 0 || index >= this.size) return false;
+    // insert on index - O(n)
+    public void insertOnIndex(int index, E newValue) {
+        if (index < 0 || index > this.size) throw new IndexOutOfBoundsException("Index out of bounds.");
 
-        // loop
-        SinglyNode<E> currentNode = this.head;
-        SinglyNode<E> nextNode = currentNode.getNextNode();
-
-        int counter = 0;
-        while (currentNode != null) {
-            if (counter == index) {
-                SinglyNode<E> newNode = new SinglyNode<>(newValue);
-                currentNode.setNextNode(newNode);
-                newNode.setNextNode(nextNode);
-                return true;
-            }
-            counter++;
-            currentNode = currentNode.getNextNode();
-            nextNode = currentNode != null ? currentNode.getNextNode() : null;
+        if (this.size == 0) {
+            this.unshift(newValue);
+            return;
         }
 
-        return false;
+        if (this.size == index) {
+            this.push(newValue);
+            return;
+        }
+
+        // Get previous
+        SinglyNode<E> previous = this.get(index - 1);
+        SinglyNode<E> next = previous.getNextNode();
+        SinglyNode<E> node = new SinglyNode<>(newValue);
+        previous.setNextNode(node);
+        node.setNextNode(next);
+        this.size++;
     }
 
     @Override
