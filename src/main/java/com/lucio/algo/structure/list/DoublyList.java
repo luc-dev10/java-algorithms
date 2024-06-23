@@ -2,7 +2,7 @@ package com.lucio.algo.structure.list;
 
 import com.lucio.algo.structure.node.DoublyNode;
 
-public class DoublyList<E> implements LinkedListADT<E> {
+public class DoublyList<E> {
     // props
     private DoublyNode<E> head;
     private DoublyNode<E> tail;
@@ -21,7 +21,6 @@ public class DoublyList<E> implements LinkedListADT<E> {
     }
 
     // push
-    @Override
     public void push(E value) {
         DoublyNode<E> node = new DoublyNode<E>(value);
         if (this.head == null) {
@@ -195,7 +194,6 @@ public class DoublyList<E> implements LinkedListADT<E> {
 
     }
 
-    @Override
     public void reverse() {
         if (this.size <= 1) return;
 
@@ -217,17 +215,14 @@ public class DoublyList<E> implements LinkedListADT<E> {
 
     }
 
-    @Override
     public int getSize() {
         return this.size;
     }
 
-    @Override
     public E getFirstValue() {
         return this.head != null ? this.head.getValue() : null;
     }
 
-    @Override
     public E getLastValue() {
         return this.tail != null ? this.tail.getValue() : null;
     }
