@@ -1,5 +1,6 @@
 package com.lucio.algo;
 
+import com.lucio.algo.structure.list.SinglyList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -25,5 +26,21 @@ public class SinglyListTest {
 
         Assertions.assertEquals(this.integerLinkedList.size(), expectedSize);
         Assertions.assertNotEquals(this.integerLinkedList.size(), unexpectedSize);
+    }
+
+    @Test
+    @DisplayName("Test get method in linked list")
+    public void getMethodOfLinkedListTest() {
+        SinglyList<Integer> testLinkedList = new SinglyList<>();
+
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> testLinkedList.get(-1));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> testLinkedList.get(6));
+
+        // ____________________
+
+        // Expected values
+        for (int i = 0; i < integerLinkedList.size(); i++) {
+            Assertions.assertEquals(i, integerLinkedList.get(i));
+        }
     }
 }
