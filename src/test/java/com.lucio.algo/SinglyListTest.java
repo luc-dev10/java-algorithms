@@ -50,4 +50,11 @@ public class SinglyListTest {
         int value = 0;
         Assertions.assertEquals(value, integerLinkedList.getFirst());
     }
+
+    @Test
+    @DisplayName("Test get last value method in linked list")
+    public void getLastValueMethodOfLinkedListTest() {
+        int value = 10;
+        Assertions.assertEquals(value, integerLinkedList.getLast());
+    }
 }
