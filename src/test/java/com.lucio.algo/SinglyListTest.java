@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class SinglyListTest {
     SinglyList<Integer> integerLinkedList = new SinglyList<>();
+    SinglyList<Integer> emptyLinkedList = new SinglyList<>();
 
     @BeforeEach
     public void setup() {
@@ -29,10 +30,9 @@ public class SinglyListTest {
     @Test
     @DisplayName("Test get method in linked list")
     public void getMethodOfLinkedListTest() {
-        SinglyList<Integer> testLinkedList = new SinglyList<>();
 
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> testLinkedList.get(-1));
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> testLinkedList.get(6));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(6));
 
         // ____________________
 
@@ -106,7 +106,6 @@ public class SinglyListTest {
     @Test
     @DisplayName("Test pop method in linked list")
     public void popMethodOfLinkedListTest() {
-        SinglyList<Integer> testSinglyList = new SinglyList<>();
         int expected = 9;
         int expectedPop = 10;
         int actualPop = integerLinkedList.pop();
@@ -118,7 +117,23 @@ public class SinglyListTest {
         // ________________________
 
         // Test popping nothing
-        Assertions.assertNull(testSinglyList.pop());
+        Assertions.assertNull(emptyLinkedList.pop());
         Assertions.assertEquals(expectedPop, integerLinkedList.getSize());
+    }
+
+    @Test
+    @DisplayName("Test shift method in linked list")
+    public void shiftMethodOfLinkedListTest() {
+        int expected = 1;
+        int expectedShift = 0;
+        int actualShift = integerLinkedList.shift();
+
+        Assertions.assertEquals(expectedShift, actualShift);
+        Assertions.assertEquals(expected, integerLinkedList.getFirstValue());
+
+        // ________________________
+
+        // Test shift nothing
+        Assertions.assertNull(emptyLinkedList.pop());
     }
 }

@@ -166,7 +166,6 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
     // O(1)
     @Override
     public void unshift(E value) {
-
         SinglyNode<E> newNode = new SinglyNode<>(value);
         if (size == 0) {
             this.head = newNode;
