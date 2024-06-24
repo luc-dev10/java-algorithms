@@ -108,25 +108,6 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         return null;
     }
 
-    public boolean set(int index, E value) {
-        if (index >= size || index < 0) return false;
-
-        DoublyNode<E> current = this.head;
-        int count = 0;
-        while (current != null) {
-
-            if (index == count) {
-                current.setValue(value);
-                return true;
-            }
-            // update index
-            count++;
-            current = current.getNextNode();
-        }
-
-        return false;
-    }
-
     // insert
     public boolean insert(int index, E value) {
 
@@ -139,7 +120,6 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
             this.unshift(value);
             return true;
         } else {
-
             DoublyNode<E> newNode = new DoublyNode<>(value);
             DoublyNode<E> previousNode = this.get(index - 1);
             DoublyNode<E> nextNode = previousNode.getNextNode();
