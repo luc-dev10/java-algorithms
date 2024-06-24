@@ -32,9 +32,26 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         this.size++;
     }
 
+    // O(1)
     @Override
     public void insertOnIndex(int index, E newValue) {
+        if (this.size < index || index < 0) throw new IndexOutOfBoundsException();
 
+        if (this.size == 0 || this.size == 1 || this.size == index) {
+            this.push(newValue);
+        } else if (index == 0) {
+            this.unshift(newValue);
+        } else {
+            DoublyNode<E> newNode = new DoublyNode<>(newValue);
+            DoublyNode<E> previousNode = this.get(index - 1);
+            DoublyNode<E> nextNode = previousNode.getNextNode();
+
+            previousNode.setNextNode(newNode);
+            nextNode.setPreviousNode(newNode);
+            newNode.setPreviousNode(previousNode);
+            newNode.setNextNode(nextNode);
+            this.size++;
+        }
     }
 
     @Override
@@ -106,32 +123,6 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         }
 
         return null;
-    }
-
-    // insert
-    public boolean insert(int index, E value) {
-
-        if (this.size < index || index < 0) return false;
-
-        if (this.size == 0 || this.size == 1 || this.size == index) {
-            this.push(value);
-            return true;
-        } else if (index == 0) {
-            this.unshift(value);
-            return true;
-        } else {
-            DoublyNode<E> newNode = new DoublyNode<>(value);
-            DoublyNode<E> previousNode = this.get(index - 1);
-            DoublyNode<E> nextNode = previousNode.getNextNode();
-
-            previousNode.setNextNode(newNode);
-            nextNode.setPreviousNode(newNode);
-            newNode.setPreviousNode(previousNode);
-            newNode.setNextNode(nextNode);
-            this.size++;
-            return true;
-        }
-
     }
 
     public boolean remove(int index) {
