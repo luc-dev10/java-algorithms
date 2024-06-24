@@ -61,7 +61,7 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         return value;
     }
 
-    // shift
+    // O(1)
     public E shift() {
         if (this.size == 0) return null;
 
@@ -76,7 +76,6 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
             this.head = currentNode;
         }
         this.size--;
-
         return temp.getValue();
     }
 
