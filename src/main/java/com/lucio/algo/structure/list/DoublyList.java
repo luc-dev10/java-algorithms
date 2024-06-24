@@ -79,9 +79,9 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         return temp.getValue();
     }
 
-    // unshift
+    // O(1)
     public void unshift(E value) {
-        DoublyNode<E> node = new DoublyNode<E>(value);
+        DoublyNode<E> node = new DoublyNode<>(value);
         if (this.size == 0) {
             this.head = node;
             this.tail = node;
