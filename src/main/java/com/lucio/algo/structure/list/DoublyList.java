@@ -27,7 +27,7 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
             this.tail.setNextNode(node);
             node.setPreviousNode(this.tail);
         }
-        
+
         this.tail = node;
         this.size++;
     }
@@ -42,10 +42,8 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
 
     }
 
-    // pop last item
+    // O(1)
     public E pop() {
-
-        // do nothing if size = 0
         if (this.size == 0) return null;
 
         E value = this.tail.getValue();
