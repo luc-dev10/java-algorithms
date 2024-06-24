@@ -18,22 +18,18 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         this.size = 0;
     }
 
-    // push
+    // O(1)
     public void push(E value) {
-        DoublyNode<E> node = new DoublyNode<E>(value);
+        DoublyNode<E> node = new DoublyNode<>(value);
         if (this.head == null) {
             this.head = node;
         } else {
             this.tail.setNextNode(node);
             node.setPreviousNode(this.tail);
         }
-
-        // update tail
+        
         this.tail = node;
-
-        // increase size
         this.size++;
-
     }
 
     @Override
