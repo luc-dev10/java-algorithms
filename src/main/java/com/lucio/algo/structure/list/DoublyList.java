@@ -93,28 +93,19 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         this.size++;
     }
 
+    // O(n)
     public DoublyNode<E> get(int index) {
-        if (index >= size || index < 0) return null;
+        if (index >= size || index < 0) throw new IndexOutOfBoundsException();
 
-        DoublyNode<E> current = null;
-        if (index > (this.size / 2)) {
-            current = this.tail;
-            int count = this.size - 1;
-            while (count != index) {
-                current = current.getPreviousNode();
-                count--;
-            }
-
-        } else {
-            current = this.head;
-            int count = 0;
-            while (count != index) {
-                current = current.getNextNode();
-                count++;
-            }
+        DoublyNode<E> current = this.head;
+        int count = 0;
+        while (current != null) {
+            if (count == index) return current;
+            current = current.getNextNode();
+            count++;
         }
 
-        return current;
+        return null;
     }
 
     public boolean set(int index, E value) {
