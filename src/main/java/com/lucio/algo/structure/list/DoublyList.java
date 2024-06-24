@@ -1,10 +1,11 @@
 package com.lucio.algo.structure.list;
 
+import com.lucio.algo.structure.adt.ListADT;
 import com.lucio.algo.structure.node.DoublyNode;
 
 import java.util.Iterator;
 
-public class DoublyList<E> implements Iterable<E> {
+public class DoublyList<E> implements ListADT<E>, Iterable<E> {
     // props
     private DoublyNode<E> head;
     private DoublyNode<E> tail;
@@ -35,6 +36,16 @@ public class DoublyList<E> implements Iterable<E> {
 
     }
 
+    @Override
+    public void insertOnIndex(int index, E newValue) {
+
+    }
+
+    @Override
+    public void removeAt(int index) {
+
+    }
+
     // pop last item
     public E pop() {
 
@@ -57,8 +68,7 @@ public class DoublyList<E> implements Iterable<E> {
     }
 
     // shift
-    public DoublyNode<E> shift() {
-
+    public E shift() {
         if (this.size == 0) return null;
 
         DoublyNode<E> temp = this.head;
@@ -73,7 +83,7 @@ public class DoublyList<E> implements Iterable<E> {
         }
         this.size--;
 
-        return temp;
+        return temp.getValue();
     }
 
     // unshift
