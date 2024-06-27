@@ -11,6 +11,8 @@ public interface ListADT<E> {
 
     void insertOnIndex(int index, E newValue);
 
+    void set(int index, E newValue);
+
     void removeAt(int index);
 
     E pop();

@@ -87,6 +87,12 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
         this.size++;
     }
 
+    @Override
+    public void set(int index, E newValue) {
+        SinglyNode<E> currentNode = this.get(index);
+        currentNode.setValue(newValue);
+    }
+
     // remove at index - O(n)
     @Override
     public void removeAt(int index) {
