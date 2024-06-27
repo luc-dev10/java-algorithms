@@ -25,12 +25,12 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         DoublyNode<E> current = this.head;
         int count = 0;
         while (current != null) {
-            if (count == index) return current;
+            if (count == index) break;
             current = current.getNextNode();
             count++;
         }
 
-        return null;
+        return current;
     }
 
     @Override
@@ -109,6 +109,12 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         currentNode.setPreviousNode(null);
 
         this.size--;
+    }
+
+    // O(n)
+    public void set(int index, E value) {
+        DoublyNode<E> currentNode = this.get(index);
+        currentNode.setValue(value);
     }
 
     // O(1)

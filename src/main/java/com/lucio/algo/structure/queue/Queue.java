@@ -1,7 +1,6 @@
 package com.lucio.algo.structure.queue;
 
 import com.lucio.algo.structure.list.DoublyList;
-import com.lucio.algo.structure.node.DoublyNode;
 
 // FIFO
 public class Queue<E> {
@@ -15,10 +14,7 @@ public class Queue<E> {
 
     // pop
     public E pop() {
-
-        DoublyNode<E> shiftNode = doublyList.shift();
-
-        return shiftNode != null ? shiftNode.getValue() : null;
+        return doublyList.shift();
     }
 
     // size
