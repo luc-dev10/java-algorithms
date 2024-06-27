@@ -54,6 +54,7 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         }
     }
 
+    // O(1)
     @Override
     public void removeAt(int index) {
         if (index < 0 || index >= this.size) throw new IndexOutOfBoundsException();
@@ -75,7 +76,7 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         nextNode.setPreviousNode(previousNode);
         currentNode.setNextNode(null);
         currentNode.setPreviousNode(null);
-        
+
         this.size--;
     }
 
@@ -143,37 +144,6 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         }
 
         return null;
-    }
-
-    public boolean remove(int index) {
-        if (this.size < index || index < 0) {
-            return false;
-        } else if (index == 0) {
-            this.shift();
-            return true;
-        } else if (index == this.size - 1) {
-            this.pop();
-            return true;
-        } else {
-
-            DoublyNode<E> currentNode = this.get(index);
-            DoublyNode<E> previousNode = currentNode.getPreviousNode();
-            DoublyNode<E> nextNode = currentNode.getNextNode();
-
-            // empty values
-            currentNode.setNextNode(null);
-            currentNode.setPreviousNode(null);
-
-            // patch
-            previousNode.setNextNode(nextNode);
-            nextNode.setPreviousNode(previousNode);
-
-            // update size
-            size--;
-
-            return true;
-        }
-
     }
 
     public void reverse() {
