@@ -1,6 +1,5 @@
-package com.lucio.algo;
+package com.lucio.algo.structure.list;
 
-import com.lucio.algo.structure.list.SinglyList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
