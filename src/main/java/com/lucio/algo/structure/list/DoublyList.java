@@ -18,7 +18,38 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         this.size = 0;
     }
 
+    // O(n)
+    public DoublyNode<E> get(int index) {
+        if (index >= size || index < 0) throw new IndexOutOfBoundsException();
+
+        DoublyNode<E> current = this.head;
+        int count = 0;
+        while (current != null) {
+            if (count == index) return current;
+            current = current.getNextNode();
+            count++;
+        }
+
+        return null;
+    }
+
+    @Override
+    public E getFirstValue() {
+        return this.head != null ? this.head.getValue() : null;
+    }
+
+    @Override
+    public E getLastValue() {
+        return this.tail != null ? this.tail.getValue() : null;
+    }
+
+    @Override
+    public int getSize() {
+        return this.size;
+    }
+
     // O(1)
+    @Override
     public void push(E value) {
         DoublyNode<E> node = new DoublyNode<>(value);
         if (this.head == null) {
@@ -81,6 +112,7 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
     }
 
     // O(1)
+    @Override
     public E pop() {
         if (this.size == 0) return null;
 
@@ -100,6 +132,7 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
     }
 
     // O(1)
+    @Override
     public E shift() {
         if (this.size == 0) return null;
 
@@ -118,6 +151,7 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
     }
 
     // O(1)
+    @Override
     public void unshift(E value) {
         DoublyNode<E> node = new DoublyNode<>(value);
         if (this.size == 0) {
@@ -131,21 +165,7 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         this.size++;
     }
 
-    // O(n)
-    public DoublyNode<E> get(int index) {
-        if (index >= size || index < 0) throw new IndexOutOfBoundsException();
-
-        DoublyNode<E> current = this.head;
-        int count = 0;
-        while (current != null) {
-            if (count == index) return current;
-            current = current.getNextNode();
-            count++;
-        }
-
-        return null;
-    }
-
+    @Override
     public void reverse() {
         if (this.size <= 1) return;
 
@@ -155,28 +175,13 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         this.head = temp;
 
         while (temp != null) {
-
             DoublyNode<E> previousNode = temp.getPreviousNode();
             DoublyNode<E> nextNode = temp.getNextNode();
             temp.setPreviousNode(nextNode);
             temp.setNextNode(previousNode);
 
             temp = temp.getNextNode();
-
         }
-
-    }
-
-    public int getSize() {
-        return this.size;
-    }
-
-    public E getFirstValue() {
-        return this.head != null ? this.head.getValue() : null;
-    }
-
-    public E getLastValue() {
-        return this.tail != null ? this.tail.getValue() : null;
     }
 
     @Override
