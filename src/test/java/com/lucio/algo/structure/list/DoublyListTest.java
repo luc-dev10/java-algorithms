@@ -105,4 +105,22 @@ public class DoublyListTest {
                 () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1)));
     }
 
+    @Test
+    @DisplayName("Test pop method in linked list")
+    public void popMethodOfLinkedListTest() {
+        int expected = 9;
+        int expectedPop = 10;
+        int actualPop = integerLinkedList.pop();
+
+        Assertions.assertEquals(expected, integerLinkedList.getLastValue());
+        Assertions.assertEquals(expectedPop, actualPop);
+        Assertions.assertEquals(expectedPop, actualPop);
+
+        // ________________________
+
+        // Test popping nothing
+        Assertions.assertNull(emptyLinkedList.pop());
+        Assertions.assertEquals(expectedPop, integerLinkedList.getSize());
+    }
+
 }
