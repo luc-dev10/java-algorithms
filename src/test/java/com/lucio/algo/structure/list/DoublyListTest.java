@@ -30,4 +30,20 @@ public class DoublyListTest {
         Assertions.assertNotEquals(this.integerLinkedList.getSize(), unexpectedSize);
     }
 
+    @Test
+    @DisplayName("Test get method in linked list")
+    public void getMethodOfLinkedListTest() {
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(16));
+
+        // ____________________
+
+        // Expected values
+        for (int i = 0; i < integerLinkedList.getSize(); i++) {
+            Assertions.assertEquals(i,
+                    integerLinkedList.get(i)
+                            .getValue());
+        }
+    }
+
 }
