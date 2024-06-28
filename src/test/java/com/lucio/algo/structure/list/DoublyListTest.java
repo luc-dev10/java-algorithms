@@ -68,4 +68,23 @@ public class DoublyListTest {
         Assertions.assertEquals(value, integerLinkedList.getLastValue());
     }
 
+    @Test
+    @DisplayName("Test insert method in linked list")
+    public void insertMethodOfLinkedListTest() {
+        // Given
+        int value = 100;
+        int index = 2;
+
+        // When
+        integerLinkedList.insertOnIndex(index, value);
+
+        // Then
+        Assertions.assertAll("Assert insert index test",
+                () -> Assertions.assertEquals(value,
+                        integerLinkedList.get(index)
+                                .getValue()),
+                () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(100)),
+                () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1)));
+    }
+
 }
