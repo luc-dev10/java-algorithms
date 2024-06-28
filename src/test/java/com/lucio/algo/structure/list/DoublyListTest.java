@@ -53,4 +53,11 @@ public class DoublyListTest {
         Assertions.assertEquals(value, integerLinkedList.getFirstValue());
     }
 
+    @Test
+    @DisplayName("Test get last value method in linked list")
+    public void getLastValueMethodOfLinkedListTest() {
+        int value = 10;
+        Assertions.assertEquals(value, integerLinkedList.getLastValue());
+    }
+
 }
