@@ -60,4 +60,12 @@ public class DoublyListTest {
         Assertions.assertEquals(value, integerLinkedList.getLastValue());
     }
 
+    @Test
+    @DisplayName("Test push method in linked list")
+    public void pushMethodOfLinkedListTest() {
+        int value = 11;
+        integerLinkedList.push(value);
+        Assertions.assertEquals(value, integerLinkedList.getLastValue());
+    }
+
 }
