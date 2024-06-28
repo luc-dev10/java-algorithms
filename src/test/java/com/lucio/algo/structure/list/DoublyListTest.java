@@ -87,4 +87,22 @@ public class DoublyListTest {
                 () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1)));
     }
 
+    @Test
+    @DisplayName("Test remove method in linked list")
+    public void removeMethodOfLinkedListTest() {
+        // Given
+        int index = 2;
+
+        // When
+        integerLinkedList.removeAt(index);
+
+        // Then
+        Assertions.assertAll("Assert remove index test",
+                () -> Assertions.assertNotEquals(index,
+                        integerLinkedList.get(index)
+                                .getValue()),
+                () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(100)),
+                () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1)));
+    }
+
 }
