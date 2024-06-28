@@ -88,6 +88,20 @@ public class DoublyListTest {
     }
 
     @Test
+    @DisplayName("Test set method in linked list")
+    public void setMethodOfLinkedListTest() {
+        // Given
+        int index = 0;
+        int value = -6;
+
+        // When
+        integerLinkedList.set(index, value);
+
+        // Then
+        Assertions.assertEquals(value, integerLinkedList.getFirstValue());
+    }
+
+    @Test
     @DisplayName("Test remove method in linked list")
     public void removeMethodOfLinkedListTest() {
         // Given
