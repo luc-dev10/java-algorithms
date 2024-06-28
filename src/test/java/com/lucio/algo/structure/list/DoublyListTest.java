@@ -123,4 +123,20 @@ public class DoublyListTest {
         Assertions.assertEquals(expectedPop, integerLinkedList.getSize());
     }
 
+    @Test
+    @DisplayName("Test shift method in linked list")
+    public void shiftMethodOfLinkedListTest() {
+        int expected = 1;
+        int expectedShift = 0;
+        int actualShift = integerLinkedList.shift();
+
+        Assertions.assertEquals(expectedShift, actualShift);
+        Assertions.assertEquals(expected, integerLinkedList.getFirstValue());
+
+        // ________________________
+
+        // Test shift nothing
+        Assertions.assertNull(emptyLinkedList.pop());
+    }
+
 }
