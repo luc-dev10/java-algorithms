@@ -46,4 +46,11 @@ public class DoublyListTest {
         }
     }
 
+    @Test
+    @DisplayName("Test get first value method in linked list")
+    public void getFirstValueMethodOfLinkedListTest() {
+        int value = 0;
+        Assertions.assertEquals(value, integerLinkedList.getFirstValue());
+    }
+
 }
