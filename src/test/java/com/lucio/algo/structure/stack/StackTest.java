@@ -29,5 +29,14 @@ public class StackTest {
         Assertions.assertEquals(this.stack.getSize(), expectedSizeForFilledStack);
         Assertions.assertNotEquals(this.emptyStack.getSize(), expectedSizeForEmptyStack);
     }
+
+    @Test()
+    @DisplayName("Test Pop of integer stack")
+    public void popTest() {
+        int expectedValueForFilledStack = 10;
+
+        Assertions.assertEquals(this.stack.pop(), expectedValueForFilledStack);
+        Assertions.assertEquals(this.emptyStack.pop(), null);
+    }
 }
 

@@ -9,27 +9,27 @@ public class Stack<E> {
 
     // pop - O(1)
     public E pop() {
-        return doublyList.pop();
+        return this.doublyList.pop();
     }
 
     // push O(1)
     public void push(E value) {
-        doublyList.push(value);
+        this.doublyList.push(value);
     }
 
     // size O(1)
     public int getSize() {
-        return doublyList.getSize();
+        return this.doublyList.getSize();
     }
 
     // get by index - O(n)
     public E get(int index) {
-        DoublyNode<E> node = doublyList.get(index);
+        DoublyNode<E> node = this.doublyList.get(index);
         return node != null ? node.getValue() : null;
     }
 
     // set by index - O(n)
     public void set(int index, E value) {
-        doublyList.set(index, value);
+        this.doublyList.set(index, value);
     }
 }
