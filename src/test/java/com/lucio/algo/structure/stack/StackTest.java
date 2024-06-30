@@ -36,7 +36,7 @@ public class StackTest {
         int expectedValueForFilledStack = 10;
 
         Assertions.assertEquals(this.stack.pop(), expectedValueForFilledStack);
-        Assertions.assertEquals(this.emptyStack.pop(), null);
+        Assertions.assertNull(this.emptyStack.pop());
     }
 }
 
