@@ -174,4 +174,10 @@ public class DoublyListTest {
         }
     }
 
+    @Test
+    @DisplayName("Test is empty method in linked list")
+    public void isEmptyLinkedListTest() {
+        Assertions.assertTrue(this.emptyLinkedList.isEmpty());
+        Assertions.assertFalse(this.integerLinkedList.isEmpty());
+    }
 }
