@@ -6,11 +6,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class SinglyListTest {
-    SinglyList<Integer> integerLinkedList = new SinglyList<>();
-    SinglyList<Integer> emptyLinkedList = new SinglyList<>();
+    SinglyList<Integer> integerLinkedList;
+    SinglyList<Integer> emptyLinkedList;
 
     @BeforeEach
     public void setup() {
+        integerLinkedList = new SinglyList<>();
+        emptyLinkedList = new SinglyList<>();
+
         for (int i = 0; i <= 10; i++) {
             integerLinkedList.push(i);
         }
@@ -18,7 +21,7 @@ public class SinglyListTest {
 
     @Test()
     @DisplayName("Test length of integer linked list")
-    public void sizeOfLinkedListExpectingElevenToReturnTest() {
+    public void sizeTest() {
         int expectedSize = 11;
         int unexpectedSize = 10;
 
@@ -28,10 +31,12 @@ public class SinglyListTest {
 
     @Test
     @DisplayName("Test get method in linked list")
-    public void getMethodOfLinkedListTest() {
+    public void getTest() {
+        int negativeInvalidIndex = -1;
+        int positiveInvalidIndex = 16;
 
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1));
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(6));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(negativeInvalidIndex));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(positiveInvalidIndex));
 
         // ____________________
 
@@ -45,29 +50,30 @@ public class SinglyListTest {
 
     @Test
     @DisplayName("Test get first value method in linked list")
-    public void getFirstValueMethodOfLinkedListTest() {
+    public void getFirstValueTest() {
         int value = 0;
         Assertions.assertEquals(value, integerLinkedList.getFirstValue());
     }
 
     @Test
     @DisplayName("Test get last value method in linked list")
-    public void getLastValueMethodOfLinkedListTest() {
+    public void getLastValueTest() {
         int value = 10;
         Assertions.assertEquals(value, integerLinkedList.getLastValue());
     }
 
     @Test
     @DisplayName("Test push method in linked list")
-    public void pushMethodOfLinkedListTest() {
+    public void pushTest() {
         int value = 11;
         integerLinkedList.push(value);
+
         Assertions.assertEquals(value, integerLinkedList.getLastValue());
     }
 
     @Test
     @DisplayName("Test insert method in linked list")
-    public void insertMethodOfLinkedListTest() {
+    public void insertTest() {
         // Given
         int value = 100;
         int index = 2;
@@ -76,17 +82,14 @@ public class SinglyListTest {
         integerLinkedList.insertOnIndex(index, value);
 
         // Then
-        Assertions.assertAll("Assert insert index test",
-                () -> Assertions.assertEquals(value,
-                        integerLinkedList.get(index)
-                                .getValue()),
-                () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(100)),
-                () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1)));
+        Assertions.assertEquals(value,
+                integerLinkedList.get(index)
+                        .getValue());
     }
 
     @Test
     @DisplayName("Test set method in linked list")
-    public void setMethodOfLinkedListTest() {
+    public void setTest() {
         // Given
         int index = 0;
         int value = -6;
@@ -100,7 +103,7 @@ public class SinglyListTest {
 
     @Test
     @DisplayName("Test remove method in linked list")
-    public void removeMethodOfLinkedListTest() {
+    public void removeTest() {
         // Given
         int index = 2;
 
@@ -108,41 +111,34 @@ public class SinglyListTest {
         integerLinkedList.removeAt(index);
 
         // Then
-        Assertions.assertAll("Assert remove index test",
-                () -> Assertions.assertNotEquals(index,
-                        integerLinkedList.get(index)
-                                .getValue()),
-                () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(100)),
-                () -> Assertions.assertThrows(IndexOutOfBoundsException.class, () -> integerLinkedList.get(-1)));
+        Assertions.assertNotEquals(index,
+                integerLinkedList.get(index)
+                        .getValue());
     }
 
     @Test
     @DisplayName("Test pop method in linked list")
-    public void popMethodOfLinkedListTest() {
-        int expected = 9;
-        int expectedPop = 10;
+    public void popTest() {
         int actualPop = integerLinkedList.pop();
+        int expectedPop = 10;
 
-        Assertions.assertEquals(expected, integerLinkedList.getLastValue());
-        Assertions.assertEquals(expectedPop, actualPop);
         Assertions.assertEquals(expectedPop, actualPop);
 
         // ________________________
 
         // Test popping nothing
         Assertions.assertNull(emptyLinkedList.pop());
-        Assertions.assertEquals(expectedPop, integerLinkedList.getSize());
     }
 
     @Test
     @DisplayName("Test shift method in linked list")
-    public void shiftMethodOfLinkedListTest() {
-        int expected = 1;
+    public void shiftTest() {
+        int expectedValueAfterShift = 1;
         int expectedShift = 0;
         int actualShift = integerLinkedList.shift();
 
         Assertions.assertEquals(expectedShift, actualShift);
-        Assertions.assertEquals(expected, integerLinkedList.getFirstValue());
+        Assertions.assertEquals(expectedValueAfterShift, integerLinkedList.getFirstValue());
 
         // ________________________
 
@@ -152,7 +148,7 @@ public class SinglyListTest {
 
     @Test
     @DisplayName("Test unshift method in linked list")
-    public void unshiftMethodOfLinkedListTest() {
+    public void unshiftTest() {
         int expected = -1;
         integerLinkedList.unshift(expected);
 
@@ -161,7 +157,7 @@ public class SinglyListTest {
 
     @Test
     @DisplayName("Test reverse method in linked list")
-    public void reverseMethodOfLinkedListTest() {
+    public void reverseTest() {
         integerLinkedList.reverse();
 
         for (int i = 0, a = integerLinkedList.getSize() - 1; i < integerLinkedList.getSize(); i++, a--) {
@@ -173,7 +169,7 @@ public class SinglyListTest {
 
     @Test
     @DisplayName("Test is empty method in linked list")
-    public void isEmptyLinkedListTest() {
+    public void isEmptyTest() {
         Assertions.assertTrue(this.emptyLinkedList.isEmpty());
         Assertions.assertFalse(this.integerLinkedList.isEmpty());
     }

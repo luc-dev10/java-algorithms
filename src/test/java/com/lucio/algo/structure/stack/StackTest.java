@@ -23,11 +23,11 @@ public class StackTest {
     @Test()
     @DisplayName("Test length of integer stack")
     public void sizeOfLinkedListExpectingElevenToReturnTest() {
-        int expectedSizeForFilledStack = 10;
+        int expectedSizeForFilledStack = 11;
         int expectedSizeForEmptyStack = 0;
 
         Assertions.assertEquals(this.stack.getSize(), expectedSizeForFilledStack);
-        Assertions.assertNotEquals(this.emptyStack.getSize(), expectedSizeForEmptyStack);
+        Assertions.assertEquals(this.emptyStack.getSize(), expectedSizeForEmptyStack);
     }
 
     @Test()

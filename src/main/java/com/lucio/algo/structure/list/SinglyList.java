@@ -4,7 +4,6 @@ import com.lucio.algo.structure.adt.ListADT;
 import com.lucio.algo.structure.node.SinglyNode;
 
 import java.util.Iterator;
-import java.util.function.Consumer;
 
 public class SinglyList<E> implements ListADT<E>, Iterable<E> {
     private int size;
@@ -225,14 +224,6 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
                 E value = current.getValue();
                 current = current.getNextNode();
                 return value;
-            }
-
-            @Override
-            public void remove() {
-            }
-
-            @Override
-            public void forEachRemaining(Consumer<? super E> action) {
             }
         };
     }
