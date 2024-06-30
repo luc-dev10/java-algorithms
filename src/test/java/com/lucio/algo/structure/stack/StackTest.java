@@ -50,5 +50,12 @@ public class StackTest {
         Assertions.assertEquals(this.stack.pop(), expectedValueForFilledStack);
     }
 
+    @Test()
+    @DisplayName("Test get of integer stack")
+    public void getTest() {
+        int expectedValueForFilledStack = 10;
+        Assertions.assertEquals(this.stack.get(expectedValueForFilledStack), expectedValueForFilledStack);
+    }
+
 }
 
