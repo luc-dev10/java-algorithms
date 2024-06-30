@@ -29,4 +29,13 @@ public class QueueTest {
         Assertions.assertEquals(this.queue.getSize(), expectedSizeOfFilledQueue);
         Assertions.assertEquals(this.emptyQueue.getSize(), expectedSizeOfEmptyQueue);
     }
+
+    @Test()
+    @DisplayName("Test dequeue of integer queue")
+    public void dequeueTest() {
+        int expectedValue = 0;
+
+        Assertions.assertEquals(this.queue.dequeue(), expectedValue);
+        Assertions.assertNull(this.emptyQueue.dequeue());
+    }
 }
