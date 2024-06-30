@@ -47,4 +47,11 @@ public class QueueTest {
         Assertions.assertEquals(this.queue.peek(), expectedValue);
         Assertions.assertNull(this.emptyQueue.peek());
     }
+
+    @Test()
+    @DisplayName("Test is empty of integer stack")
+    public void isEmptyTest() {
+        Assertions.assertTrue(this.emptyQueue.isEmpty());
+        Assertions.assertFalse(this.queue.isEmpty());
+    }
 }
