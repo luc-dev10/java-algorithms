@@ -18,7 +18,7 @@ public class Stack<E> {
     }
 
     // size O(1)
-    public int size() {
+    public int getSize() {
         return doublyList.getSize();
     }
 
