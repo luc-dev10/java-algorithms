@@ -57,5 +57,16 @@ public class StackTest {
         Assertions.assertEquals(this.stack.get(expectedValueForFilledStack), expectedValueForFilledStack);
     }
 
+    @Test()
+    @DisplayName("Test set of integer stack")
+    public void setTest() {
+        int index = 10;
+        int value = 100;
+        int expectedSizeForFilledStack = 11;
+
+        this.stack.set(index, value);
+        Assertions.assertEquals(this.stack.get(index), value);
+        Assertions.assertEquals(this.stack.getSize(), expectedSizeForFilledStack);
+    }
 }
 
