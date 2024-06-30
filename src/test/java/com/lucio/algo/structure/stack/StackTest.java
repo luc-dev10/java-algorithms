@@ -38,5 +38,17 @@ public class StackTest {
         Assertions.assertEquals(this.stack.pop(), expectedValueForFilledStack);
         Assertions.assertNull(this.emptyStack.pop());
     }
+
+    @Test()
+    @DisplayName("Test push of integer stack")
+    public void pushTest() {
+        int expectedValueForFilledStack = 11;
+        int expectedSizeForFilledStack = 12;
+
+        this.stack.push(expectedValueForFilledStack);
+        Assertions.assertEquals(this.stack.getSize(), expectedSizeForFilledStack);
+        Assertions.assertEquals(this.stack.pop(), expectedValueForFilledStack);
+    }
+
 }
 
