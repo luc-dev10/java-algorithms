@@ -4,32 +4,30 @@ import com.lucio.algo.structure.list.DoublyList;
 
 // FIFO
 public class Queue<E> {
+    DoublyList<E> doublyList = new DoublyList<>();
 
-    DoublyList<E> doublyList = new DoublyList<E>();
-
-    // push
-    public void push(E value) {
-        doublyList.push(value);
+    // O(1)
+    public void enqueue(E value) {
+        this.doublyList.push(value);
     }
 
-    // pop
-    public E pop() {
-        return doublyList.shift();
+    // O(1)
+    public E dequeue() {
+        return this.doublyList.shift();
     }
 
-    // size
-    public int size() {
-        return doublyList.getSize();
+    // O(1)
+    public E peek() {
+        return this.doublyList.getFirstValue();
     }
 
-    // @Override
-    // public String toString() {
-    //     StringBuilder stringBuilder = new StringBuilder();
-    //
-    //     for (E value : doublyList)
-    //         stringBuilder.append("Item: ")
-    //                 .append(value)
-    //                 .append("\n");
-    //     return stringBuilder.toString();
-    // }
+    // O(1)
+    public int getSize() {
+        return this.doublyList.getSize();
+    }
+
+    // O(1)
+    public boolean isEmpty() {
+        return this.doublyList.getSize() == 0;
+    }
 }
