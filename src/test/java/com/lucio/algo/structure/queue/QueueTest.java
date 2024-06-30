@@ -38,4 +38,13 @@ public class QueueTest {
         Assertions.assertEquals(this.queue.dequeue(), expectedValue);
         Assertions.assertNull(this.emptyQueue.dequeue());
     }
+
+    @Test()
+    @DisplayName("Test peek of integer stack")
+    public void peekTest() {
+        int expectedValue = 0;
+
+        Assertions.assertEquals(this.queue.peek(), expectedValue);
+        Assertions.assertNull(this.emptyQueue.peek());
+    }
 }
