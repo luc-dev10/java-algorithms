@@ -51,22 +51,19 @@ public class StackTest {
     }
 
     @Test()
-    @DisplayName("Test get of integer stack")
-    public void getTest() {
-        int expectedValueForFilledStack = 10;
-        Assertions.assertEquals(this.stack.get(expectedValueForFilledStack), expectedValueForFilledStack);
+    @DisplayName("Test peek of integer queue")
+    public void peekTest() {
+        int expectedValue = 10;
+
+        Assertions.assertEquals(this.stack.peek(), expectedValue);
+        Assertions.assertNull(this.emptyStack.peek());
     }
 
     @Test()
-    @DisplayName("Test set of integer stack")
-    public void setTest() {
-        int index = 10;
-        int value = 100;
-        int expectedSizeForFilledStack = 11;
-
-        this.stack.set(index, value);
-        Assertions.assertEquals(this.stack.get(index), value);
-        Assertions.assertEquals(this.stack.getSize(), expectedSizeForFilledStack);
+    @DisplayName("Test is empty of integer stack")
+    public void isEmptyTest() {
+        Assertions.assertTrue(this.emptyStack.isEmpty());
+        Assertions.assertFalse(this.stack.isEmpty());
     }
 }
 

@@ -40,7 +40,7 @@ public class QueueTest {
     }
 
     @Test()
-    @DisplayName("Test peek of integer stack")
+    @DisplayName("Test peek of integer queue")
     public void peekTest() {
         int expectedValue = 0;
 
@@ -49,7 +49,7 @@ public class QueueTest {
     }
 
     @Test()
-    @DisplayName("Test is empty of integer stack")
+    @DisplayName("Test is empty of integer queue")
     public void isEmptyTest() {
         Assertions.assertTrue(this.emptyQueue.isEmpty());
         Assertions.assertFalse(this.queue.isEmpty());
