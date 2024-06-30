@@ -1,7 +1,6 @@
 package com.lucio.algo.structure.stack;
 
 import com.lucio.algo.structure.list.DoublyList;
-import com.lucio.algo.structure.node.DoublyNode;
 
 // LIFO
 public class Stack<E> {
@@ -17,19 +16,18 @@ public class Stack<E> {
         this.doublyList.push(value);
     }
 
+    // peek
+    public E peek() {
+        return this.doublyList.getLastValue();
+    }
+
     // size O(1)
     public int getSize() {
         return this.doublyList.getSize();
     }
 
-    // get by index - O(n)
-    public E get(int index) {
-        DoublyNode<E> node = this.doublyList.get(index);
-        return node != null ? node.getValue() : null;
-    }
-
-    // set by index - O(n)
-    public void set(int index, E value) {
-        this.doublyList.set(index, value);
+    // O(1)
+    public boolean isEmpty() {
+        return this.doublyList.isEmpty();
     }
 }

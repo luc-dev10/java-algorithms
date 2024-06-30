@@ -49,6 +49,9 @@ public class SinglyList<E> implements ListADT<E>, Iterable<E> {
         return this.size;
     }
 
+    @Override
+    public boolean isEmpty() {return this.size == 0;}
+
     // O(1) constant time
     @Override
     public void push(E value) {

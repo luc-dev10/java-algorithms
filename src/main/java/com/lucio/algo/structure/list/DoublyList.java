@@ -48,6 +48,9 @@ public class DoublyList<E> implements ListADT<E>, Iterable<E> {
         return this.size;
     }
 
+    @Override
+    public boolean isEmpty() {return this.size == 0;}
+
     // O(1)
     @Override
     public void push(E value) {

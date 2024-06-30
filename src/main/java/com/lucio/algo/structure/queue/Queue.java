@@ -28,6 +28,6 @@ public class Queue<E> {
 
     // O(1)
     public boolean isEmpty() {
-        return this.doublyList.getSize() == 0;
+        return this.doublyList.isEmpty();
     }
 }

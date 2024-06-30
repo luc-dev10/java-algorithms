@@ -7,6 +7,8 @@ public interface ListADT<E> {
 
     int getSize();
 
+    boolean isEmpty();
+
     void push(E value);
 
     void insertOnIndex(int index, E newValue);
