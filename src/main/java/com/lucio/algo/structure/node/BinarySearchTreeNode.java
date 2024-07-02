@@ -5,9 +5,8 @@ public class BinarySearchTreeNode<T> {
     private BinarySearchTreeNode<T> left;
     private BinarySearchTreeNode<T> right;
 
-    public BinarySearchTreeNode() {
-        this.left = new BinarySearchTreeNode<>();
-        this.right = new BinarySearchTreeNode<>();
+    public BinarySearchTreeNode(T value) {
+        this.value = value;
     }
 
     public T getValue() {
