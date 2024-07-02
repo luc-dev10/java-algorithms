@@ -1,27 +1,27 @@
 package com.lucio.algo.structure.adt;
 
-public interface ListADT<E> {
-    E getFirstValue();
+public interface ListADT<T> {
+    T getFirstValue();
 
-    E getLastValue();
+    T getLastValue();
 
     int getSize();
 
     boolean isEmpty();
 
-    void push(E value);
+    void push(T value);
 
-    void insertOnIndex(int index, E newValue);
+    void insertOnIndex(int index, T value);
 
-    void set(int index, E newValue);
+    void set(int index, T value);
 
     void removeAt(int index);
 
-    E pop();
+    T pop();
 
-    E shift();
+    T shift();
 
-    void unshift(E value);
+    void unshift(T value);
 
     void reverse();
 }

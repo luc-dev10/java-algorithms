@@ -3,21 +3,21 @@ package com.lucio.algo.structure.stack;
 import com.lucio.algo.structure.list.DoublyList;
 
 // LIFO
-public class Stack<E> {
-    private final DoublyList<E> doublyList = new DoublyList<>();
+public class Stack<T> {
+    private final DoublyList<T> doublyList = new DoublyList<>();
 
     // pop - O(1)
-    public E pop() {
+    public T pop() {
         return this.doublyList.pop();
     }
 
     // push O(1)
-    public void push(E value) {
+    public void push(T value) {
         this.doublyList.push(value);
     }
 
     // peek
-    public E peek() {
+    public T peek() {
         return this.doublyList.getLastValue();
     }
 

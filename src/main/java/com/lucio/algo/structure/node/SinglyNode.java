@@ -1,27 +1,27 @@
 package com.lucio.algo.structure.node;
 
-public class SinglyNode<E> {
-    private E value;
-    private SinglyNode<E> nextNode;
+public class SinglyNode<T> {
+    private T value;
+    private SinglyNode<T> nextNode;
 
-    public SinglyNode(E value) {
+    public SinglyNode(T value) {
         this.value = value;
         this.nextNode = null;
     }
 
-    public E getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(E value) {
+    public void setValue(T value) {
         this.value = value;
     }
 
-    public SinglyNode<E> getNextNode() {
+    public SinglyNode<T> getNextNode() {
         return nextNode;
     }
 
-    public void setNextNode(SinglyNode<E> next) {
+    public void setNextNode(SinglyNode<T> next) {
         this.nextNode = next;
     }
 }

@@ -3,21 +3,21 @@ package com.lucio.algo.structure.queue;
 import com.lucio.algo.structure.list.DoublyList;
 
 // FIFO
-public class Queue<E> {
-    DoublyList<E> doublyList = new DoublyList<>();
+public class Queue<T> {
+    DoublyList<T> doublyList = new DoublyList<>();
 
     // O(1)
-    public void enqueue(E value) {
+    public void enqueue(T value) {
         this.doublyList.push(value);
     }
 
     // O(1)
-    public E dequeue() {
+    public T dequeue() {
         return this.doublyList.shift();
     }
 
     // O(1)
-    public E peek() {
+    public T peek() {
         return this.doublyList.getFirstValue();
     }
 
