@@ -139,4 +139,19 @@ public class BinarySearchTree<T extends Comparable<T>> {
             singlyList.push(currentNode.getValue());
         }
     }
+
+    // In-order depth first
+    public SinglyList<T> getInOrderDepthFirst() {
+        SinglyList<T> linkedList = new SinglyList<>();
+        this.getInOrderDepthFirstRecursively(linkedList, this.root);
+        return linkedList;
+    }
+
+    public void getInOrderDepthFirstRecursively(SinglyList<T> singlyList, BinaryTreeNode<T> currentNode) {
+        if (currentNode != null) {
+            this.getInOrderDepthFirstRecursively(singlyList, currentNode.getLeft());
+            singlyList.push(currentNode.getValue());
+            this.getInOrderDepthFirstRecursively(singlyList, currentNode.getRight());
+        }
+    }
 }
