@@ -1,5 +1,6 @@
 package com.lucio.algo.structure.tree;
 
+import com.lucio.algo.structure.list.SinglyList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -41,5 +42,32 @@ public class BinarySearchTreeTest {
         int value = 80;
         this.binarySearchTree.delete(value);
         Assertions.assertFalse(this.binarySearchTree.search(value));
+    }
+
+    @Test()
+    @DisplayName("Test breadth first")
+    public void breadthFirstTest() {
+        SinglyList<Integer> expectedSinglyList = new SinglyList<>();
+        expectedSinglyList.push(20);
+        expectedSinglyList.push(15);
+        expectedSinglyList.push(40);
+        expectedSinglyList.push(12);
+        expectedSinglyList.push(17);
+        expectedSinglyList.push(35);
+        expectedSinglyList.push(80);
+
+        SinglyList<Integer> singlyList = this.binarySearchTree.getBreadthFirstTraversal();
+
+        Assertions.assertTrue(() -> {
+            for (int i = 0; i < expectedSinglyList.getSize(); i++) {
+                int currentValue = singlyList.get(i)
+                        .getValue();
+                int expectedValue = expectedSinglyList.get(i)
+                        .getValue();
+
+                if (currentValue != expectedValue) return false;
+            }
+            return true;
+        });
     }
 }
