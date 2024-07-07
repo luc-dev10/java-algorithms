@@ -16,7 +16,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
     private void insertRecursively(BinarySearchTreeNode<T> currentNode, T value) {
         if (currentNode == null) {
-            this.root = new BinarySearchTreeNode<>(value);
+            currentNode = new BinarySearchTreeNode<>(value);
             return;
         }
 
