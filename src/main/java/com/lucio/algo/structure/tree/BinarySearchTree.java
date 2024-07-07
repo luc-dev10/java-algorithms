@@ -1,15 +1,15 @@
 package com.lucio.algo.structure.tree;
 
-import com.lucio.algo.structure.node.BinarySearchTreeNode;
+import com.lucio.algo.structure.node.BinaryTreeNode;
 
 public class BinarySearchTree<T extends Comparable<T>> {
-    private BinarySearchTreeNode<T> root;
+    private BinaryTreeNode<T> root;
 
     public BinarySearchTree() {
         this.root = null;
     }
 
-    public BinarySearchTreeNode<T> getRoot() {
+    public BinaryTreeNode<T> getRoot() {
         return this.root;
     }
 
@@ -18,9 +18,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
         this.root = this.insertRecursively(this.root, value);
     }
 
-    private BinarySearchTreeNode<T> insertRecursively(BinarySearchTreeNode<T> currentNode, T value) {
+    private BinaryTreeNode<T> insertRecursively(BinaryTreeNode<T> currentNode, T value) {
         if (currentNode == null) {
-            currentNode = new BinarySearchTreeNode<>(value);
+            currentNode = new BinaryTreeNode<>(value);
             return currentNode;
         }
 
@@ -41,7 +41,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return this.searchRecursively(this.root, value);
     }
 
-    private boolean searchRecursively(BinarySearchTreeNode<T> currentNode, T value) {
+    private boolean searchRecursively(BinaryTreeNode<T> currentNode, T value) {
         if (currentNode == null) return false;
 
         // check comparison
@@ -54,5 +54,39 @@ public class BinarySearchTree<T extends Comparable<T>> {
         } else {
             return this.searchRecursively(currentNode.getLeft(), value);
         }
+    }
+
+    public void delete(T value) {
+        this.root = this.deleteRecursively(this.root, value);
+    }
+
+    private BinaryTreeNode<T> deleteRecursively(BinaryTreeNode<T> currentNode, T value) {
+        if (currentNode == null) return null;
+
+        int comparison = value.compareTo(currentNode.getValue());
+        if (comparison > 0) {
+            currentNode.setRight(this.deleteRecursively(currentNode.getRight(), value));
+        } else if (comparison < 0) {
+            currentNode.setLeft(this.deleteRecursively(currentNode.getLeft(), value));
+        } else {
+            if (currentNode.getLeft() == null) return currentNode.getRight();
+            else if (currentNode.getRight() == null) return currentNode.getLeft();
+
+            // find min value in right side -> replace it with deleted value
+            currentNode.setValue(this.getMinValue(currentNode.getRight()));
+            currentNode.setRight(this.deleteRecursively(currentNode.getRight(), currentNode.getValue()));
+        }
+
+        return currentNode;
+    }
+
+    private T getMinValue(BinaryTreeNode<T> currentNode) {
+        T value = currentNode.getValue();
+        while (currentNode.getLeft() != null) {
+            value = currentNode.getLeft()
+                    .getValue();
+            currentNode = currentNode.getLeft();
+        }
+        return value;
     }
 }
