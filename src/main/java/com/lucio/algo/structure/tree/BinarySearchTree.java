@@ -124,4 +124,19 @@ public class BinarySearchTree<T extends Comparable<T>> {
             this.getPreOrderDepthFirstRecursively(singlyList, currentNode.getRight());
         }
     }
+
+    // Post-order depth first
+    public SinglyList<T> getPostOrderDepthFirst() {
+        SinglyList<T> linkedList = new SinglyList<>();
+        this.getPostOrderDepthFirstRecursively(linkedList, this.root);
+        return linkedList;
+    }
+
+    public void getPostOrderDepthFirstRecursively(SinglyList<T> singlyList, BinaryTreeNode<T> currentNode) {
+        if (currentNode != null) {
+            this.getPostOrderDepthFirstRecursively(singlyList, currentNode.getLeft());
+            this.getPostOrderDepthFirstRecursively(singlyList, currentNode.getRight());
+            singlyList.push(currentNode.getValue());
+        }
+    }
 }
