@@ -1,6 +1,9 @@
 package com.lucio.algo.structure.tree;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class BinarySearchTreeTest {
     BinarySearchTree<Integer> binarySearchTree;
@@ -20,5 +23,15 @@ public class BinarySearchTreeTest {
         //                       20
         //          15                              40
         //     12       17                  35               80
+    }
+
+    @Test()
+    @DisplayName("Test search")
+    public void searchTest() {
+        int expectedValue = 7;
+        int unexpectedValue = 90;
+
+        Assertions.assertTrue(this.binarySearchTree.search(expectedValue));
+        Assertions.assertFalse(this.binarySearchTree.search(unexpectedValue));
     }
 }
