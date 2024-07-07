@@ -3,32 +3,37 @@ package com.lucio.algo.structure.tree;
 import com.lucio.algo.structure.node.BinarySearchTreeNode;
 
 public class BinarySearchTree<T extends Comparable<T>> {
-    BinarySearchTreeNode<T> root;
+    private BinarySearchTreeNode<T> root;
 
     public BinarySearchTree() {
         this.root = null;
     }
 
-    // Insertion average = O(log n) - worst case = O(n)
-    public void insert(T value) {
-        this.insertRecursively(this.root, value);
+    public BinarySearchTreeNode<T> getRoot() {
+        return this.root;
     }
 
-    private void insertRecursively(BinarySearchTreeNode<T> currentNode, T value) {
+    // Insertion average = O(log n) - worst case = O(n)
+    public void insert(T value) {
+        this.root = this.insertRecursively(this.root, value);
+    }
+
+    private BinarySearchTreeNode<T> insertRecursively(BinarySearchTreeNode<T> currentNode, T value) {
         if (currentNode == null) {
             currentNode = new BinarySearchTreeNode<>(value);
-            return;
+            return currentNode;
         }
 
         // check where to add
-        int comparison = currentNode.getValue()
-                .compareTo(value);
+        int comparison = value.compareTo(currentNode.getValue());
 
         if (comparison > 0) {
-            this.insertRecursively(currentNode.getRight(), value);
+            currentNode.setRight(this.insertRecursively(currentNode.getRight(), value));
         } else if (comparison < 0) {
-            this.insertRecursively(currentNode.getLeft(), value);
+            currentNode.setLeft(this.insertRecursively(currentNode.getLeft(), value));
         }
+
+        return currentNode;
     }
 
     // Search average = O(log n) - worst case = O(n)
