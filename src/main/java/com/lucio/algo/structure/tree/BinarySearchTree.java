@@ -25,9 +25,31 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 .compareTo(value);
 
         if (comparison > 0) {
-            insertRecursively(currentNode.getRight(), value);
+            this.insertRecursively(currentNode.getRight(), value);
         } else if (comparison < 0) {
-            insertRecursively(currentNode.getLeft(), value);
+            this.insertRecursively(currentNode.getLeft(), value);
         }
+    }
+
+    public boolean search(T value) {
+        return this.searchRecursively(this.root, value);
+    }
+
+    private boolean searchRecursively(BinarySearchTreeNode<T> currentNode, T value) {
+        if (currentNode == null) return false;
+
+        // check comparison
+        int comparison = currentNode.getValue()
+                .compareTo(value);
+
+        if (comparison == 0) {
+            return true;
+        } else if (comparison > 0) {
+            this.searchRecursively(currentNode.getRight(), value);
+        } else {
+            this.searchRecursively(currentNode.getLeft(), value);
+        }
+
+        return false;
     }
 }
