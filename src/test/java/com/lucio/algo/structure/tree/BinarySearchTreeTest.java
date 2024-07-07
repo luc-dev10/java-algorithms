@@ -34,4 +34,12 @@ public class BinarySearchTreeTest {
         Assertions.assertTrue(this.binarySearchTree.search(expectedValue));
         Assertions.assertFalse(this.binarySearchTree.search(unexpectedValue));
     }
+
+    @Test()
+    @DisplayName("Test delete")
+    public void deleteTest() {
+        int value = 80;
+        this.binarySearchTree.delete(value);
+        Assertions.assertFalse(this.binarySearchTree.search(value));
+    }
 }
