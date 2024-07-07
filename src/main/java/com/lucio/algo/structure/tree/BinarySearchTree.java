@@ -45,17 +45,14 @@ public class BinarySearchTree<T extends Comparable<T>> {
         if (currentNode == null) return false;
 
         // check comparison
-        int comparison = currentNode.getValue()
-                .compareTo(value);
+        int comparison = value.compareTo(currentNode.getValue());
 
         if (comparison == 0) {
             return true;
         } else if (comparison > 0) {
-            this.searchRecursively(currentNode.getRight(), value);
+            return this.searchRecursively(currentNode.getRight(), value);
         } else {
-            this.searchRecursively(currentNode.getLeft(), value);
+            return this.searchRecursively(currentNode.getLeft(), value);
         }
-
-        return false;
     }
 }
