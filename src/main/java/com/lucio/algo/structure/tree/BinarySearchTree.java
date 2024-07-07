@@ -9,7 +9,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         this.root = null;
     }
 
-    // Insertion O(log n)
+    // Insertion average = O(log n) - worst case = O(n)
     public void insert(T value) {
         this.insertRecursively(this.root, value);
     }
@@ -31,7 +31,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
-    // Search O(log n)
+    // Search average = O(log n) - worst case = O(n)
     public boolean search(T value) {
         return this.searchRecursively(this.root, value);
     }
