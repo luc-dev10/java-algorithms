@@ -97,4 +97,31 @@ public class BinarySearchTreeTest {
             return true;
         });
     }
+
+    @Test()
+    @DisplayName("Test Post Order Depth first")
+    public void postOrderDepthFirstTest() {
+        SinglyList<Integer> expectedSinglyList = new SinglyList<>();
+        expectedSinglyList.push(12);
+        expectedSinglyList.push(17);
+        expectedSinglyList.push(15);
+        expectedSinglyList.push(35);
+        expectedSinglyList.push(80);
+        expectedSinglyList.push(40);
+        expectedSinglyList.push(20);
+
+        SinglyList<Integer> singlyList = this.binarySearchTree.getPostOrderDepthFirst();
+
+        Assertions.assertTrue(() -> {
+            for (int i = 0; i < expectedSinglyList.getSize(); i++) {
+                int currentValue = singlyList.get(i)
+                        .getValue();
+                int expectedValue = expectedSinglyList.get(i)
+                        .getValue();
+
+                if (currentValue != expectedValue) return false;
+            }
+            return true;
+        });
+    }
 }
