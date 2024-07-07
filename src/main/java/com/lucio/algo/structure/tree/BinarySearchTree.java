@@ -24,7 +24,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
         int comparison = currentNode.getValue()
                 .compareTo(value);
 
-        if (comparison > 0) insertRecursively(currentNode.getLeft(), value);
-        else if (comparison < 0) insertRecursively(currentNode.getRight(), value);
+        if (comparison > 0) {
+            insertRecursively(currentNode.getRight(), value);
+        } else if (comparison < 0) {
+            insertRecursively(currentNode.getLeft(), value);
+        }
     }
 }
