@@ -1,6 +1,8 @@
 package com.lucio.algo.structure.tree;
 
+import com.lucio.algo.structure.list.SinglyList;
 import com.lucio.algo.structure.node.BinaryTreeNode;
+import com.lucio.algo.structure.queue.Queue;
 
 public class BinarySearchTree<T extends Comparable<T>> {
     private BinaryTreeNode<T> root;
@@ -88,5 +90,23 @@ public class BinarySearchTree<T extends Comparable<T>> {
             currentNode = currentNode.getLeft();
         }
         return value;
+    }
+
+    // Breadth First Implementation
+    public SinglyList<T> getBreadthFirstTraversal() {
+        if (this.root == null) return null;
+
+        SinglyList<T> linkedList = new SinglyList<>();
+        Queue<BinaryTreeNode<T>> queue = new Queue<>();
+        queue.enqueue(root);
+
+        while (!queue.isEmpty()) {
+            BinaryTreeNode<T> node = queue.dequeue();
+            linkedList.push(node.getValue());
+            if (node.getLeft() != null) queue.enqueue(node.getLeft());
+            if (node.getRight() != null) queue.enqueue(node.getRight());
+        }
+
+        return linkedList;
     }
 }
