@@ -9,7 +9,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         this.root = null;
     }
 
-    // Insertion
+    // Insertion O(log n)
     public void insert(T value) {
         this.insertRecursively(this.root, value);
     }
@@ -31,6 +31,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
+    // Search O(log n)
     public boolean search(T value) {
         return this.searchRecursively(this.root, value);
     }
