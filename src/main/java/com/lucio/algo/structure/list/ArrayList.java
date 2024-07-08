@@ -35,6 +35,11 @@ public class ArrayList<T extends Comparable<T>> implements Iterable<T> {
         return (T) values[index];
     }
 
+    public void set(int index, T value) {
+        if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
+        values[index] = value;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<>() {
