@@ -1,5 +1,6 @@
 package com.lucio.algo.structure.list;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 @SuppressWarnings("unchecked cast")
@@ -10,6 +11,18 @@ public class ArrayList<T extends Comparable<T>> implements Iterable<T> {
     public ArrayList() {
         int INITIAL_CAPACITY = 5;
         values = new Object[INITIAL_CAPACITY];
+    }
+
+    private void ensureCapacity() {
+        if (this.size == values.length) values = Arrays.copyOf(values, values.length * 2);
+    }
+
+    public int getSize() {
+        return this.size;
+    }
+
+    public boolean isEmpty() {
+        return this.size == 0;
     }
 
     @Override
