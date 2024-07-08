@@ -30,6 +30,11 @@ public class ArrayList<T extends Comparable<T>> implements Iterable<T> {
         values[size++] = value;
     }
 
+    public T get(int index) {
+        if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
+        return (T) values[index];
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<>() {
