@@ -54,6 +54,15 @@ public class ArrayList<T extends Comparable<T>> implements Iterable<T> {
         return value;
     }
 
+    public T pop() {
+        if (this.size == 0) return null;
+
+        T value = this.get(this.size - 1);
+        this.set(this.size - 1, null);
+        size--;
+        return value;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<>() {
