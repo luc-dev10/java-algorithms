@@ -40,6 +40,20 @@ public class ArrayList<T extends Comparable<T>> implements Iterable<T> {
         values[index] = value;
     }
 
+    public T remove(int index) {
+        if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
+
+        T value = (T) values[index];
+        int shiftElements = size - index - 1;
+
+        if (shiftElements > 0) {
+            System.arraycopy(this.values, index + 1, this.values, index, shiftElements);
+        }
+
+        this.values[--size] = null;
+        return value;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<>() {
