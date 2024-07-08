@@ -25,6 +25,11 @@ public class ArrayList<T extends Comparable<T>> implements Iterable<T> {
         return this.size == 0;
     }
 
+    public void add(T value) {
+        this.ensureCapacity();
+        values[size++] = value;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<>() {
