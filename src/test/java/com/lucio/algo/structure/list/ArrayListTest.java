@@ -32,4 +32,15 @@ public class ArrayListTest {
     public void emptyTest() {
         Assertions.assertTrue(this.emptyArrayList.isEmpty());
     }
+
+    @Test()
+    @DisplayName("Test add")
+    public void addTest() {
+        int value = 11;
+        int size = 12;
+
+        this.arrayList.add(value);
+        Assertions.assertEquals(this.arrayList.getSize(), size);
+    }
+
 }
