@@ -52,4 +52,17 @@ public class ArrayListTest {
         Assertions.assertEquals(this.arrayList.get(expectedValue), expectedValue);
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> this.arrayList.get(unexpectedValue));
     }
+
+    @Test()
+    @DisplayName("Test remove")
+    public void removeTest() {
+        int value = 0;
+        int index = 0;
+        int expectedSize = 10;
+
+        Assertions.assertEquals(this.arrayList.remove(index), value);
+        Assertions.assertNotEquals(this.arrayList.get(index), value);
+        Assertions.assertEquals(this.arrayList.getSize(), expectedSize);
+    }
+
 }
