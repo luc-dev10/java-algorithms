@@ -65,4 +65,21 @@ public class ArrayListTest {
         Assertions.assertEquals(this.arrayList.getSize(), expectedSize);
     }
 
+    @Test()
+    @DisplayName("Test iterator")
+    public void iteratorTest() {
+        SinglyList<Integer> integerSinglyList = new SinglyList<>();
+        for (int i = 0; i <= 10; i++)
+            integerSinglyList.push(i);
+
+        // compare values
+        boolean isValueMatching = true;
+        for (int i = 0; i < this.arrayList.getSize(); i++) {
+            if (integerSinglyList.get(i)
+                    .getValue()
+                    .compareTo(this.arrayList.get(i)) != 0) isValueMatching = false;
+        }
+
+        Assertions.assertTrue(isValueMatching);
+    }
 }
