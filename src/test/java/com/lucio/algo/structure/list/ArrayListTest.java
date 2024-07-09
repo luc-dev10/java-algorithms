@@ -27,4 +27,9 @@ public class ArrayListTest {
         Assertions.assertEquals(this.arrayList.getSize(), expectedSize);
     }
 
+    @Test()
+    @DisplayName("Test isEmpty")
+    public void emptyTest() {
+        Assertions.assertTrue(this.emptyArrayList.isEmpty());
+    }
 }
