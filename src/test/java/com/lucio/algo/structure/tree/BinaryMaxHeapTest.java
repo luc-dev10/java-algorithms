@@ -30,4 +30,11 @@ public class BinaryMaxHeapTest {
         Assertions.assertEquals(this.binaryMaxHeap.getSize(), expectedSize);
     }
 
+    @Test()
+    @DisplayName("Test peek")
+    public void peekTest() {
+        int expected = 10;
+        Assertions.assertEquals(this.binaryMaxHeap.peek(), expected);
+    }
+
 }
