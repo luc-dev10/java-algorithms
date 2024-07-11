@@ -11,6 +11,21 @@ public class BinaryMaxHeap<T extends Comparable<T>> implements Iterable<T> {
         this.values = new ArrayList<>();
     }
 
+    // get parent index (n - 1)/2
+    private int getParentIndex(int index) {return (index - 1) / 2;}
+
+    // left child index 2n + 1
+    private int getLeftChildIndex(int index) {return 2 * index + 1;}
+
+    // right child 2n + 2
+    private int getRightChildIndex(int index) {return (2 * index) + 2;}
+
+    private boolean hasParent(int index) {return this.getParentIndex(index) >= 0;}
+
+    private boolean hasLeftChild(int index) {return this.getLeftChildIndex(index) < this.values.getSize();}
+
+    private boolean hasRightChild(int index) {return this.getRightChildIndex(index) < this.values.getSize();}
+
     public int getSize() {
         return this.values.getSize();
     }
@@ -18,7 +33,7 @@ public class BinaryMaxHeap<T extends Comparable<T>> implements Iterable<T> {
     public boolean isEmpty() {
         return this.values.isEmpty();
     }
- 
+
     @Override
     public Iterator<T> iterator() {
         return this.values.iterator();
