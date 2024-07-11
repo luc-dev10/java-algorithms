@@ -11,6 +11,10 @@ public class BinaryMaxHeap<T extends Comparable<T>> implements Iterable<T> {
         this.values = new ArrayList<>();
     }
 
+    public int getSize() {
+        return this.values.getSize();
+    }
+
     @Override
     public Iterator<T> iterator() {
         return this.values.iterator();
