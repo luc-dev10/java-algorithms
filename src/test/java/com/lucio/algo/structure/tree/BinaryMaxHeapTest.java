@@ -1,5 +1,6 @@
 package com.lucio.algo.structure.tree;
 
+import com.lucio.algo.structure.list.ArrayList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -56,4 +57,37 @@ public class BinaryMaxHeapTest {
         Assertions.assertNotEquals(this.binaryMaxHeap.peek(), actual);
     }
 
+    @Test()
+    @DisplayName("Test iterator")
+    public void iteratorTest() {
+        ArrayList<Integer> expectedArrayList = new ArrayList<>();
+        expectedArrayList.add(10);
+        expectedArrayList.add(9);
+        expectedArrayList.add(6);
+        expectedArrayList.add(7);
+        expectedArrayList.add(8);
+        expectedArrayList.add(2);
+        expectedArrayList.add(5);
+        expectedArrayList.add(1);
+        expectedArrayList.add(4);
+        expectedArrayList.add(3);
+
+        // ________________________
+
+        int index = 0;
+        boolean isValuesMatching = true;
+
+        for (int value : this.binaryMaxHeap) {
+            if (value != expectedArrayList.get(index)) {
+                isValuesMatching = false;
+                break;
+            }
+
+            index++;
+        }
+
+        // _________________________
+
+        Assertions.assertTrue(isValuesMatching);
+    }
 }
