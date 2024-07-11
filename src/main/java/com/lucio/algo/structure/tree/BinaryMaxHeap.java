@@ -75,6 +75,40 @@ public class BinaryMaxHeap<T extends Comparable<T>> implements Iterable<T> {
         }
     }
 
+    // O(log N)
+    public T poll() {
+        T value = this.values.get(0);
+        T newValue = this.values.pop();
+
+        this.values.set(0, newValue);
+        this.heapifyDown();
+        return value;
+    }
+
+    private void heapifyDown() {
+        int index = 0;
+
+        while (this.hasLeftChild(index)) {
+            // check what is higher, left or right
+            int largerChildIndex = this.getLeftChildIndex(index);
+            if (this.hasRightChild(index) && this.getRightChildIndex(index) > largerChildIndex)
+                largerChildIndex = this.getRightChildIndex(index);
+
+            T largestValue = this.values.get(largerChildIndex);
+
+            // _______________-
+            if (this.values.get(index)
+                    .compareTo(largestValue) >= 0) {
+                break;
+            } else {
+                this.swap(index, largerChildIndex);
+            }
+
+            // Update index
+            index = largerChildIndex;
+        }
+    }
+
     @Override
     public Iterator<T> iterator() {
         return this.values.iterator();
