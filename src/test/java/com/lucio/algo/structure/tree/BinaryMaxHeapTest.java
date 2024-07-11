@@ -46,4 +46,14 @@ public class BinaryMaxHeapTest {
         Assertions.assertEquals(this.binaryMaxHeap.peek(), value);
     }
 
+    @Test()
+    @DisplayName("Test poll")
+    public void pollTest() {
+        int expected = 10;
+        int actual = this.binaryMaxHeap.poll();
+
+        Assertions.assertEquals(actual, expected);
+        Assertions.assertNotEquals(this.binaryMaxHeap.peek(), actual);
+    }
+
 }
