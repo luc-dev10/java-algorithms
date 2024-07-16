@@ -54,6 +54,27 @@ public class BinaryMinHeap<T extends Comparable<T>> implements Iterable<T> {
         return this.values.get(0);
     }
 
+    // O(log N)
+    public void add(T value) {
+        this.values.add(value);
+        this.heapifyUp();
+    }
+
+    private void swap(int firstIndex, int secondIndex) {
+        T temp = this.values.get(firstIndex);
+        this.values.set(firstIndex, this.values.get(secondIndex));
+        this.values.set(secondIndex, temp);
+    }
+
+    private void heapifyUp() {
+        int index = this.values.getSize() - 1;
+        while (this.hasParent(index) && this.values.get(index)
+                .compareTo(this.getParentValue(index)) < 0) {
+            this.swap(this.getParentIndex(index), index);
+            index = this.getParentIndex(index);
+        }
+    }
+
     @Override
     public Iterator<T> iterator() {
         return this.values.iterator();
