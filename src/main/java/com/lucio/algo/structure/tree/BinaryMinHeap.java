@@ -45,6 +45,10 @@ public class BinaryMinHeap<T extends Comparable<T>> implements Iterable<T> {
         return this.values.getSize();
     }
 
+    public boolean isEmpty() {
+        return this.values.isEmpty();
+    }
+
     @Override
     public Iterator<T> iterator() {
         return this.values.iterator();
