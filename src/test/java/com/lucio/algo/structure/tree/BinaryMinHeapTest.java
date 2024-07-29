@@ -45,4 +45,14 @@ public class BinaryMinHeapTest {
         this.binaryMinHeap.add(value);
         Assertions.assertEquals(this.binaryMinHeap.peek(), value);
     }
+
+    @Test()
+    @DisplayName("Test poll")
+    public void pollTest() {
+        int expected = 1;
+        int actual = this.binaryMinHeap.poll();
+
+        Assertions.assertEquals(actual, expected);
+        Assertions.assertNotEquals(this.binaryMinHeap.peek(), actual);
+    }
 }
