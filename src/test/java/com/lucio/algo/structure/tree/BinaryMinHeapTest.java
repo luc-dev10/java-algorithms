@@ -36,4 +36,13 @@ public class BinaryMinHeapTest {
         int expected = 1;
         Assertions.assertEquals(this.binaryMinHeap.peek(), expected);
     }
+
+    @Test()
+    @DisplayName("Test Add")
+    public void addTest() {
+        int value = 0;
+
+        this.binaryMinHeap.add(value);
+        Assertions.assertEquals(this.binaryMinHeap.peek(), value);
+    }
 }
